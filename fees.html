@@ -286,7 +286,7 @@
     <div class="tagline">Nurturing Minds · Shaping Futures</div>
   </div>
 
-  <nav>
+ <nav>
     <div class="logo">
       <div class="logo-circle">MSC</div>
       <span>Modern Science School</span>
@@ -294,10 +294,14 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="courses.html">Courses</a></li>
+      <li><a href="courses.html" class="active">Courses</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="fees.html" class="active">Fees</a></li>
+      <li><a href="fees.html">Fees</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="hamburger" aria-label="Toggle navigation" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <div class="page-header">
