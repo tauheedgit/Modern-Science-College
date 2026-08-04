@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses — Modern Science College, Pratapgarh</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f5f6fa; color: #2d3436; line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      position: sticky; top: 0; z-index: 999;
+      background: #0d1b2a;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      color: #fff; font-size: 1.05rem; font-weight: 600;
+    }
+    .logo-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: bold; color: #fff;
+    }
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a {
+      display: block; padding: 10px 18px;
+      color: #dfe6e9; font-size: 0.9rem; font-weight: 500;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: #1e90ff; color: #fff;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, rgba(13,27,42,0.85), rgba(30,144,255,0.65)),
+                  url('../img/collegepic1.jpeg') center/cover no-repeat;
+      color: #fff; text-align: center;
+      padding: 100px 24px 80px;
+    }
+    .page-header h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
+    .page-header p { font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.88rem; opacity: 0.7; margin-bottom: 12px; }
+    .breadcrumb a { color: #fff; text-decoration: underline; }
+
+    section { padding: 72px 40px; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 48px; }
+    .section-title h2 {
+      font-size: 2rem; color: #0d1b2a;
+      display: inline-block; position: relative;
+    }
+    .section-title h2::after {
+      content: ''; display: block; width: 55px; height: 4px;
+      background: #1e90ff; border-radius: 2px; margin: 10px auto 0;
+    }
+    .section-title p { color: #636e72; margin-top: 10px; }
+
+    /* DEPARTMENTS */
+    #departments { background: #fff; padding: 72px 40px; }
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px; max-width: 1100px; margin: 0 auto;
+    }
+    .dept-card {
+      background: #f5f6fa; border-radius: 14px;
+      overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s;
+    }
+    .dept-card:hover { transform: translateY(-6px); }
+    .dept-header {
+      background: linear-gradient(135deg, #1e90ff, #0d8bf0);
+      padding: 24px 28px; color: #fff;
+    }
+    .dept-header.green { background: linear-gradient(135deg, #00b894, #00a381); }
+    .dept-header.purple { background: linear-gradient(135deg, #6c5ce7, #5a4bd1); }
+    .dept-header.orange { background: linear-gradient(135deg, #e17055, #d15a3f); }
+    .dept-header.teal { background: linear-gradient(135deg, #00cec9, #00a8a5); }
+    .dept-header h3 { font-size: 1.2rem; }
+    .dept-header span { font-size: 0.85rem; opacity: 0.88; }
+    .dept-body { padding: 24px 28px; }
+    .dept-body h4 { color: #0d1b2a; font-size: 0.92rem; margin-bottom: 8px; margin-top: 16px; }
+    .dept-body h4:first-child { margin-top: 0; }
+    .dept-body ul { list-style: none; padding: 0; }
+    .dept-body ul li { padding: 4px 0; color: #636e72; font-size: 0.9rem; }
+    .dept-body ul li::before { content: '▹ '; color: #1e90ff; }
+
+    /* FEATURES STRIP */
+    #features {
+      background: linear-gradient(135deg, #0d1b2a, #1a2d45);
+      color: #fff; padding: 72px 40px; text-align: center;
+    }
+    #features .section-title h2 { color: #fff; }
+    #features .section-title p { color: #b2bec3; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px; max-width: 1000px; margin: 0 auto;
+    }
+    .feature-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 28px 20px;
+    }
+    .feature-icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .feature-item h3 { font-size: 1rem; margin-bottom: 8px; }
+    .feature-item p { color: #b2bec3; font-size: 0.88rem; }
+
+    /* ELIGIBILITY */
+    #eligibility { background: #f5f6fa; padding: 72px 40px; }
+    .elig-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px; max-width: 900px; margin: 0 auto;
+    }
+    .elig-card {
+      background: #fff; border-radius: 12px; padding: 28px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border-top: 4px solid #1e90ff;
+    }
+    .elig-card h3 { color: #0d1b2a; margin-bottom: 12px; font-size: 1.05rem; }
+    .elig-card ul { list-style: none; }
+    .elig-card ul li { padding: 5px 0; color: #636e72; font-size: 0.9rem; }
+    .elig-card ul li::before { content: '✓ '; color: #00b894; font-weight: bold; }
+
+    /* ADMISSION CTA */
+    .admission-cta {
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      color: #fff; text-align: center; padding: 60px 40px;
+    }
+    .admission-cta h2 { font-size: 2rem; margin-bottom: 14px; }
+    .admission-cta p { font-size: 1.05rem; opacity: 0.92; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-block; padding: 14px 36px; background: #fff; color: #1e90ff;
+      border: 2px solid #fff; border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem; transition: all 0.25s;
+    }
+    .btn-white:hover { background: transparent; color: #fff; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: #0d1b2a; color: #b2bec3;
+      padding: 50px 40px 24px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px; max-width: 1100px; margin: 0 auto 40px;
+    }
+    .footer-col h3 { color: #fff; margin-bottom: 16px; font-size: 1rem; }
+    .footer-col p, .footer-col a { color: #b2bec3; font-size: 0.9rem; line-height: 2; display: block; }
+    .footer-col a:hover { color: #1e90ff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center; padding-top: 20px;
+      font-size: 0.85rem; color: #636e72;
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; padding: 14px 20px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .page-header h1 { font-size: 2rem; }
+      section, #departments { padding: 50px 20px; }
+      .dept-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <div class="logo-circle">MSC</div>
+      <span>Modern Science College</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html" class="active">Courses</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="fees.html">Fees</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Courses</p>
+    <h1>Our Courses</h1>
+    <p>Explore a wide range of undergraduate programs designed to prepare you for success.</p>
+  </div>
+
+  <!-- DEPARTMENTS -->
+  <div id="departments">
+    <div class="section-title">
+      <h2>Undergraduate Programs</h2>
+      <p>Modern Science College, Pratapgarh — quality education for aspiring minds</p>
+    </div>
+    <div class="dept-grid">
+
+      <div class="dept-card">
+        <div class="dept-header">
+          <h3>🔬 Faculty of Science</h3>
+          <span>Bachelor of Science (B.Sc.)</span>
+        </div>
+        <div class="dept-body">
+          <h4>Streams Available</h4>
+          <ul>
+            <li>B.Sc. — Physics, Chemistry &amp; Mathematics (PCM)</li>
+            <li>B.Sc. — Zoology, Botany &amp; Chemistry (ZBC)</li>
+            <li>Well-equipped laboratories for practicals</li>
+            <li>Field visits and project-based learning</li>
+          </ul>
+          <h4>Duration</h4>
+          <ul><li>3 Years (6 Semesters)</li></ul>
+          <h4>Eligibility</h4>
+          <ul><li>10+2 with Science stream (PCB/PCM)</li></ul>
+        </div>
+      </div>
+
+      <div class="dept-card">
+        <div class="dept-header green">
+          <h3>💻 Faculty of Computer Applications</h3>
+          <span>Bachelor of Computer Applications (BCA)</span>
+        </div>
+        <div class="dept-body">
+          <h4>Program Highlights</h4>
+          <ul>
+            <li>Programming, DBMS, Web Technologies</li>
+            <li>Data Structures &amp; Algorithms</li>
+            <li>Software Engineering &amp; Project Work</li>
+            <li>Industry-oriented practical training</li>
+          </ul>
+          <h4>Duration</h4>
+          <ul><li>3 Years (6 Semesters)</li></ul>
+          <h4>Eligibility</h4>
+          <ul><li>10+2 in any stream (Mathematics preferred)</li></ul>
+        </div>
+      </div>
+
+      <div class="dept-card">
+        <div class="dept-header purple">
+          <h3>📊 Faculty of Commerce</h3>
+          <span>Bachelor of Commerce (B.Com.)</span>
+        </div>
+        <div class="dept-body">
+          <h4>Specializations</h4>
+          <ul>
+            <li>B.Com. — General &amp; Honors</li>
+            <li>Accounting &amp; Financial Management</li>
+            <li>Business Studies &amp; Economics</li>
+            <li>Taxation &amp; Auditing fundamentals</li>
+          </ul>
+          <h4>Duration</h4>
+          <ul><li>3 Years (6 Semesters)</li></ul>
+          <h4>Eligibility</h4>
+          <ul><li>10+2 in any stream</li></ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-title">
+      <h2>Why Choose MSC?</h2>
+      <p>Features that make us the preferred choice</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🏫</div>
+        <h3>Modern Infrastructure</h3>
+        <p>Spacious classrooms, well-equipped labs, and a comprehensive library.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">👨‍🏫</div>
+        <h3>Qualified Faculty</h3>
+        <p>Experienced teachers committed to personalized attention and guidance.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🏆</div>
+        <h3>Exam Results</h3>
+        <p>Consistently strong university results and a culture of academic achievement.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🎭</div>
+        <h3>Extra-Curriculars</h3>
+        <p>Sports, cultural events, NSS, and various student clubs for all-round development.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💼</div>
+        <h3>Career Guidance</h3>
+        <p>Dedicated support for higher studies, competitive exams, and placements.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🌐</div>
+        <h3>Digital Learning</h3>
+        <p>Smart classrooms, online resources, and a tech-forward learning environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELIGIBILITY SUMMARY -->
+  <section id="eligibility">
+    <div class="section-title">
+      <h2>Eligibility Summary</h2>
+      <p>Quick reference for admission requirements</p>
+    </div>
+    <div class="elig-grid">
+      <div class="elig-card">
+        <h3>🔬 B.Sc.</h3>
+        <ul>
+          <li>10+2 with Science (PCB/PCM)</li>
+          <li>Minimum 45% aggregate</li>
+          <li>Merit-based admission</li>
+        </ul>
+      </div>
+      <div class="elig-card">
+        <h3>💻 BCA</h3>
+        <ul>
+          <li>10+2 in any stream</li>
+          <li>Mathematics at 10+2 level preferred</li>
+          <li>Minimum 45% aggregate</li>
+        </ul>
+      </div>
+      <div class="elig-card">
+        <h3>📊 B.Com.</h3>
+        <ul>
+          <li>10+2 in any stream</li>
+          <li>Commerce stream preferred</li>
+          <li>Minimum 45% aggregate</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSION CTA -->
+  <section class="admission-cta">
+    <h2>Admissions Open!</h2>
+    <p>Take the first step towards a bright future. Contact us for admission details and application forms.</p>
+    <a href="about.html" class="btn-white">Contact Us →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Modern Science College</h3>
+        <p>Recognized by the Government of Uttar Pradesh. Located at Bela Pratapgarh.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>📍 Bela Pratapgarh, Uttar Pradesh</p>
+        <p>📞 082990 57197</p>
+        <p>✉️ mscpbh@gmail.com</p>
+        <p><a href="https://www.facebook.com/mscpbh" target="_blank">📘 fb.com/mscpbh</a></p>
+      </div>
+      <div class="footer-col">
+        <h3>Affiliated By</h3>
+        <p>Recognized and affiliated by the Government of Uttar Pradesh through the following bodies:</p>
+        <p><a href="https://upmsp.edu.in/" target="_blank" rel="noopener">🎓 U.P. Madhyamik Shiksha Parishad (UPMSP)</a></p>
+        <p><a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener">💻 UP Scholarship Portal</a></p>
+        <p style="margin-top:8px;"><small style="color:#636e72;">UPMSP — Uttar Pradesh Board of Secondary Education</small></p>
+        <p><small>UP Govt. Scholarship — Financial assistance for students</small></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Modern Science College, Pratapgarh. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

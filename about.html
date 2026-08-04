@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Modern Science College, Pratapgarh</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f5f6fa; color: #2d3436; line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAVBAR */
+    nav {
+      position: sticky; top: 0; z-index: 999;
+      background: #0d1b2a;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      color: #fff; font-size: 1.05rem; font-weight: 600;
+    }
+    .logo-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: bold; color: #fff; flex-shrink: 0;
+    }
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a {
+      display: block; padding: 10px 18px;
+      color: #dfe6e9; font-size: 0.9rem; font-weight: 500;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: #1e90ff; color: #fff;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, rgba(13,27,42,0.85), rgba(30,144,255,0.65)),
+                  url('../img/collegepic1.jpeg') center/cover no-repeat;
+      color: #fff; text-align: center;
+      padding: 100px 24px 80px;
+    }
+    .page-header h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
+    .page-header p { font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.88rem; opacity: 0.7; margin-bottom: 12px; }
+    .breadcrumb a { color: #fff; text-decoration: underline; }
+
+    /* SECTIONS */
+    section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 48px; }
+    .section-title h2 {
+      font-size: 2rem; color: #0d1b2a;
+      display: inline-block; position: relative;
+    }
+    .section-title h2::after {
+      content: ''; display: block; width: 55px; height: 4px;
+      background: #1e90ff; border-radius: 2px; margin: 10px auto 0;
+    }
+    .section-title p { color: #636e72; margin-top: 10px; }
+
+    /* ABOUT BLOCK */
+    #about-intro { background: #fff; padding: 72px 40px; }
+    #about-intro .section-title { max-width: 1100px; margin: 0 auto 48px; }
+    .about-content {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+      max-width: 1100px; margin: 0 auto; align-items: center;
+    }
+    .about-content img {
+      width: 100%; border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    }
+    .about-text p { color: #636e72; margin-bottom: 14px; font-size: 0.98rem; }
+
+    /* MISSION VISION */
+    #mission-vision { background: #f5f6fa; }
+    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1100px; margin: 0 auto; }
+    .mv-card {
+      background: #fff; border-radius: 14px; padding: 36px 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border-left: 5px solid #1e90ff;
+    }
+    .mv-card.vision { border-left-color: #00b894; }
+    .mv-card h3 { color: #0d1b2a; font-size: 1.2rem; margin-bottom: 14px; }
+    .mv-card p { color: #636e72; font-size: 0.95rem; }
+    .mv-icon { font-size: 2rem; margin-bottom: 14px; }
+
+    /* VALUES */
+    #values { background: #fff; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .value-card {
+      text-align: center; padding: 28px 20px;
+      border-radius: 12px;
+      background: #f5f6fa;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .value-card:hover { background: #e8f4fd; transform: translateY(-4px); }
+    .value-icon { font-size: 2.2rem; margin-bottom: 12px; }
+    .value-card h3 { color: #0d1b2a; font-size: 1rem; margin-bottom: 8px; }
+    .value-card p { color: #636e72; font-size: 0.87rem; }
+
+    /* HISTORY TIMELINE */
+    #history { background: #f5f6fa; }
+    .timeline { max-width: 800px; margin: 0 auto; }
+    .timeline-item {
+      display: flex; gap: 24px; margin-bottom: 32px;
+      position: relative;
+    }
+    .timeline-year {
+      min-width: 90px; font-weight: 800; font-size: 1.1rem;
+      color: #1e90ff; padding-top: 4px;
+    }
+    .timeline-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #1e90ff; margin-top: 8px; flex-shrink: 0;
+    }
+    .timeline-body { background: #fff; border-radius: 10px; padding: 18px 22px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); flex: 1; }
+    .timeline-body h4 { color: #0d1b2a; margin-bottom: 6px; font-size: 0.95rem; }
+    .timeline-body p { color: #636e72; font-size: 0.88rem; }
+
+    /* LEADERSHIP */
+    #leadership { background: #fff; }
+    .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+    .leader-card { text-align: center; }
+    .leader-avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; color: #fff; margin: 0 auto 14px;
+    }
+    .leader-card h3 { color: #0d1b2a; font-size: 1rem; }
+    .leader-card .role { color: #1e90ff; font-size: 0.88rem; font-weight: 600; }
+    .leader-card .desc { color: #636e72; font-size: 0.85rem; margin-top: 6px; }
+
+    /* FOOTER */
+    footer {
+      background: #0d1b2a; color: #b2bec3;
+      padding: 50px 40px 24px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px; max-width: 1100px; margin: 0 auto 40px;
+    }
+    .footer-col h3 { color: #fff; margin-bottom: 16px; font-size: 1rem; }
+    .footer-col p, .footer-col a { color: #b2bec3; font-size: 0.9rem; line-height: 2; display: block; }
+    .footer-col a:hover { color: #1e90ff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center; padding-top: 20px;
+      font-size: 0.85rem; color: #636e72;
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; padding: 14px 20px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .page-header h1 { font-size: 2rem; }
+      section { padding: 50px 20px; }
+      #about-intro { padding: 50px 20px; }
+      .about-content { grid-template-columns: 1fr; gap: 30px; }
+      .mv-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <div class="logo-circle">MSC</div>
+      <span>Modern Science College</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="fees.html">Fees</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="breadcrumb"><a href="index.html">Home</a> / About Us</p>
+    <h1>About Modern Science College</h1>
+    <p>A tradition of academic excellence, holistic growth, and community service since our establishment.</p>
+  </div>
+
+  <!-- ABOUT INTRO -->
+  <div id="about-intro">
+    <div class="section-title">
+      <h2>Our Story</h2>
+      <p>From humble beginnings to a respected educational institution</p>
+    </div>
+    <div class="about-content">
+      <img src="../img/collegepic2.jpeg" alt="College Campus" />
+      <div class="about-text">
+        <h3>Building Futures, One Student at a Time</h3>
+        <p>Modern Science College, Pratapgarh was founded with a singular vision: to provide accessible, high-quality higher education to the youth of the region. Over the years, we have grown into a full-fledged institution recognized for academic rigor and character formation.</p>
+        <p>Located in the culturally rich town of Bela Pratapgarh, the college serves students from across the district and beyond. With a well-qualified faculty, modern infrastructure, and a student-centric approach, we continue to set new benchmarks in education.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION & VISION -->
+  <section id="mission-vision">
+    <div class="section-title">
+      <h2>Mission &amp; Vision</h2>
+      <p>Guided by purpose, driven by passion</p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p>To provide a transformative learning experience that empowers students with knowledge, skills, and ethical values. We strive to create an inclusive environment where every student can thrive academically, socially, and personally — emerging as responsible citizens and capable professionals.</p>
+      </div>
+      <div class="mv-card vision">
+        <div class="mv-icon">🌟</div>
+        <h3>Our Vision</h3>
+        <p>To be a leading center of higher learning that inspires innovation, nurtures leadership, and contributes meaningfully to society. We envision a future where every graduate of Modern Science College is a catalyst for positive change in their community and profession.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section id="values">
+    <div class="section-title">
+      <h2>Our Core Values</h2>
+      <p>The principles that guide everything we do</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">📚</div>
+        <h3>Academic Excellence</h3>
+        <p>Upholding the highest standards of teaching and learning.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Integrity</h3>
+        <p>Fostering honesty, transparency, and ethical conduct.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💡</div>
+        <h3>Innovation</h3>
+        <p>Encouraging creative thinking and modern methodologies.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌍</div>
+        <h3>Inclusivity</h3>
+        <p>Welcoming students from all backgrounds and abilities.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🏆</div>
+        <h3>Excellence</h3>
+        <p>Striving for the best in every endeavor.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">❤️</div>
+        <h3>Community</h3>
+        <p>Building a supportive and collaborative campus culture.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY TIMELINE -->
+  <section id="history">
+    <div class="section-title">
+      <h2>Our Journey</h2>
+      <p>Key milestones in the history of the college</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">Foundation</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>Establishment of Modern Science College</h4>
+          <p>Founded with the goal of bringing quality science education to the Pratapgarh region, the college began its journey with a handful of courses and a passionate faculty.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Growth</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>Expansion of Programs</h4>
+          <p>Introduced undergraduate programs in Science, Commerce, and Computer Applications to meet growing student demand and evolving industry needs.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Affiliation</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>Affiliated with the Government of Uttar Pradesh</h4>
+          <p>Recognized by the Government of Uttar Pradesh, ensuring academic credibility and modern curriculum standards.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Present</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>Continuing the Legacy</h4>
+          <p>Today, the college stands as a leading institution in the region, producing graduates who excel in higher studies, competitive exams, and professional careers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="section-title">
+      <h2>Leadership</h2>
+      <p>Meet the guiding force behind our institution</p>
+    </div>
+    <div class="leader-grid">
+      <div class="leader-card">
+        <div class="leader-avatar">👨‍💼</div>
+        <h3>Principal</h3>
+        <p class="role">Head of Institution</p>
+        <p class="desc">Providing visionary leadership and academic oversight to drive institutional excellence.</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-avatar">👩‍🏫</div>
+        <h3>Faculty</h3>
+        <p class="role">Academic Team</p>
+        <p class="desc">A team of dedicated, qualified educators committed to student success and innovation in teaching.</p>
+      </div>
+      <div class="leader-card">
+        <div class="leader-avatar">🎓</div>
+        <h3>Alumni Network</h3>
+        <p class="role">Our Pride</p>
+        <p class="desc">A growing community of successful alumni who carry forward the MSC legacy across the globe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Modern Science College</h3>
+        <p>A premier educational institution committed to knowledge and character development in Pratapgarh, Uttar Pradesh.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>📍 Bela Pratapgarh, Uttar Pradesh</p>
+        <p>📞 082990 57197</p>
+        <p>✉️ mscpbh@gmail.com</p>
+        <p><a href="https://www.facebook.com/mscpbh" target="_blank">📘 fb.com/mscpbh</a></p>
+      </div>
+      <div class="footer-col">
+        <h3>Affiliated By</h3>
+        <p>Recognized and affiliated by the Government of Uttar Pradesh through the following bodies:</p>
+        <p><a href="https://upmsp.edu.in/" target="_blank" rel="noopener">🎓 U.P. Madhyamik Shiksha Parishad (UPMSP)</a></p>
+        <p><a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener">💻 UP Scholarship Portal</a></p>
+        <p style="margin-top:8px;"><small style="color:#636e72;">UPMSP — Uttar Pradesh Board of Secondary Education</small></p>
+        <p><small>UP Govt. Scholarship — Financial assistance for students</small></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Modern Science College, Pratapgarh. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

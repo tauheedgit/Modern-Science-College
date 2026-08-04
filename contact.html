@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Modern Science College, Pratapgarh</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f5f6fa;
+      color: #2d3436;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: sticky; top: 0; z-index: 999;
+      background: #0d1b2a;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      color: #fff; font-size: 1.1rem; font-weight: 600;
+    }
+    .logo-circle {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; font-weight: bold; color: #fff; flex-shrink: 0;
+    }
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a {
+      display: block; padding: 10px 18px;
+      color: #dfe6e9; font-size: 0.9rem; font-weight: 500;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: #1e90ff; color: #fff;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 60vh; min-height: 380px;
+      background: url('../img/collegepic3.jpeg') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,27,42,0.82), rgba(30,144,255,0.55));
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      color: #fff; max-width: 800px; padding: 0 24px;
+    }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 12px; }
+    .hero-content p { font-size: 1.15rem; opacity: 0.9; }
+
+    /* ─── SECTION TITLE ─── */
+    .section-title {
+      text-align: center; margin-bottom: 40px;
+    }
+    .section-title h2 {
+      font-size: 2rem; color: #0d1b2a; margin-bottom: 8px;
+    }
+    .section-title p { color: #636e72; font-size: 1rem; }
+
+    /* ─── CONTACT SECTION ─── */
+    #contact-info {
+      padding: 80px 40px;
+      background: #fff;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px; max-width: 1100px; margin: 0 auto;
+    }
+    .contact-card {
+      background: #f8f9fa; border: 1px solid #e9ecef;
+      border-radius: 14px; padding: 32px 24px;
+      text-align: center; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    }
+    .contact-icon {
+      font-size: 2.5rem; margin-bottom: 14px;
+    }
+    .contact-card h3 {
+      font-size: 1.1rem; color: #0d1b2a; margin-bottom: 10px;
+    }
+    .contact-card p { color: #636e72; font-size: 0.95rem; }
+    .contact-card a { color: #1e90ff; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ─── MAP SECTION ─── */
+    #map-section {
+      padding: 0 40px 80px;
+      background: #f5f6fa;
+    }
+    .map-wrap {
+      max-width: 1100px; margin: 0 auto;
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .map-wrap iframe { width: 100%; height: 450px; border: 0; display: block; }
+
+    /* ─── ABOUT STRIP ─── */
+    #contact-about {
+      padding: 80px 40px;
+      background: #fff;
+    }
+    .about-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px; align-items: center;
+    }
+    .about-inner img {
+      width: 100%; height: 320px; object-fit: cover;
+      border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .about-inner h2 {
+      font-size: 2rem; color: #0d1b2a; margin-bottom: 16px;
+    }
+    .about-inner p { color: #636e72; margin-bottom: 14px; }
+    .about-inner ul { list-style: none; }
+    .about-inner ul li { padding: 6px 0; color: #2d3436; }
+    .about-inner ul li::before { content: '✔ '; color: #00b894; font-weight: bold; }
+
+    /* ─── SOCIAL SECTION ─── */
+    #social-strip {
+      padding: 60px 40px;
+      background: #0d1b2a; text-align: center;
+    }
+    #social-strip .section-title h2 { color: #fff; }
+    #social-strip .section-title p { color: #b2bec3; }
+    .social-box {
+      display: inline-block;
+      background: #1877f2; color: #fff;
+      padding: 14px 36px; border-radius: 10px;
+      font-size: 1.05rem; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .social-box:hover { background: #145dbf; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #0b1620; color: #b2bec3; padding: 50px 40px 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 36px; max-width: 1100px; margin: 0 auto;
+    }
+    .footer-col h3 { color: #fff; margin-bottom: 14px; font-size: 1rem; }
+    .footer-col p { font-size: 0.9rem; margin-bottom: 8px; }
+    .footer-col a { display: block; color: #b2bec3; font-size: 0.9rem; padding: 4px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: #1e90ff; }
+    .footer-bottom {
+      text-align: center; border-top: 1px solid #1a2d45;
+      margin-top: 36px; padding-top: 20px;
+      font-size: 0.85rem; color: #636e72;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { flex-direction: column; padding: 12px 20px; gap: 8px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .hero-content h1 { font-size: 2rem; }
+      .about-inner { grid-template-columns: 1fr; }
+      #contact-info, #map-section, #contact-about, #social-strip { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">
+      <div class="logo-circle">🎓</div>
+      <span>Modern Science College</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="fees.html">Fees</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you — reach out for admissions, queries, or a campus visit</p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section id="contact-info">
+    <div class="section-title">
+      <h2>Get In Touch</h2>
+      <p>Here's how you can reach Modern Science College, Pratapgarh</p>
+    </div>
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>Address</h3>
+        <p>Modern Science College<br />Bela Pratapgarh, Uttar Pradesh<br />India – 230001</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>Phone</h3>
+        <p><a href="tel:+918299057197">082990 57197</a></p>
+        <p style="margin-top:6px;"><small>Mon–Sat, 9:00 AM – 5:00 PM</small></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h3>Email</h3>
+        <p><a href="mailto:mscpbh@gmail.com">mscpbh@gmail.com</a></p>
+        <p style="margin-top:6px;"><small>We reply within 24 hours</small></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">📘</div>
+        <h3>Facebook</h3>
+        <p><a href="https://www.facebook.com/mscpbh" target="_blank" rel="noopener">fb.com/mscpbh</a></p>
+        <p style="margin-top:6px;"><small>Like &amp; follow for updates</small></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section id="map-section">
+    <div class="section-title">
+      <h2>Our Location</h2>
+      <p>Bela Pratapgarh, Uttar Pradesh — come visit our campus</p>
+    </div>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3588.924542147256!2d81.98989307520016!3d25.904850977262225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a96d6ef388aa9%3A0x8de8f3e9551d182!2sModern%20Science%20college!5e0!3m2!1sen!2sin!4v1785809005564!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section id="contact-about">
+    <div class="about-inner">
+      <div>
+        <img src="../img/collegepic2.jpeg" alt="Modern Science College Campus" />
+      </div>
+      <div>
+        <h2>About Modern Science College</h2>
+        <p>Modern Science College, Pratapgarh stands as a beacon of quality education in the region. We are committed to nurturing young minds through a blend of academic rigor, practical exposure, and character development.</p>
+        <ul>
+          <li>Affiliated with U.P. Madhyamik Shiksha Parishad (UPMSP)</li>
+          <li>Qualified and experienced faculty</li>
+          <li>Well-equipped science &amp; computer labs</li>
+          <li>Scholarship support for eligible students</li>
+          <li>Focus on holistic student development</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL MEDIA -->
+  <section id="social-strip">
+    <div class="section-title">
+      <h2>Follow Us on Facebook</h2>
+      <p>Stay updated with the latest news, events, and announcements</p>
+    </div>
+    <a href="https://www.facebook.com/mscpbh" target="_blank" rel="noopener" class="social-box">
+      📘 Visit Our Facebook Page — fb.com/mscpbh
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Modern Science College</h3>
+        <p>Nurturing minds, building character, shaping futures at Bela Pratapgarh, Uttar Pradesh.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="fees.html">Fees</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📍 Bela Pratapgarh, Uttar Pradesh</p>
+        <p>📞 082990 57197</p>
+        <p>✉️ mscpbh@gmail.com</p>
+        <p><a href="https://www.facebook.com/mscpbh" target="_blank" rel="noopener">📘 fb.com/mscpbh</a></p>
+      </div>
+      <div class="footer-col">
+        <h3>Affiliated By</h3>
+        <p>Recognized and affiliated by the Government of Uttar Pradesh through the following bodies:</p>
+        <p><a href="https://upmsp.edu.in/" target="_blank" rel="noopener">🎓 U.P. Madhyamik Shiksha Parishad (UPMSP)</a></p>
+        <p><a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener">💻 UP Scholarship Portal</a></p>
+        <p style="margin-top:8px;"><small style="color:#636e72;">UPMSP — Uttar Pradesh Board of Secondary Education</small></p>
+        <p><small>UP Govt. Scholarship — Financial assistance for students</small></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Modern Science College, Pratapgarh. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

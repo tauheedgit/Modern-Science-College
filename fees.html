@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fees Structure — Modern Science College, Pratapgarh</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f5f6fa; color: #2d3436; line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      position: sticky; top: 0; z-index: 999;
+      background: #0d1b2a;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      color: #fff; font-size: 1.05rem; font-weight: 600;
+    }
+    .logo-circle {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: bold; color: #fff;
+    }
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a {
+      display: block; padding: 10px 18px;
+      color: #dfe6e9; font-size: 0.9rem; font-weight: 500;
+      border-radius: 6px; transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: #1e90ff; color: #fff;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, rgba(13,27,42,0.85), rgba(30,144,255,0.65)),
+                  url('../img/collegepic1.jpeg') center/cover no-repeat;
+      color: #fff; text-align: center;
+      padding: 100px 24px 80px;
+    }
+    .page-header h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
+    .page-header p { font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.88rem; opacity: 0.7; margin-bottom: 12px; }
+    .breadcrumb a { color: #fff; text-decoration: underline; }
+
+    section { padding: 72px 40px; max-width: 1000px; margin: 0 auto; }
+    .section-title { text-align: center; margin-bottom: 40px; }
+    .section-title h2 {
+      font-size: 1.8rem; color: #0d1b2a;
+      display: inline-block; position: relative;
+    }
+    .section-title h2::after {
+      content: ''; display: block; width: 55px; height: 4px;
+      background: #1e90ff; border-radius: 2px; margin: 10px auto 0;
+    }
+    .section-title p { color: #636e72; margin-top: 10px; }
+
+    /* FEES INFO BANNER */
+    #fees-info {
+      background: linear-gradient(135deg, #0d1b2a, #1a2d45);
+      color: #fff; padding: 50px 40px; text-align: center;
+    }
+    #fees-info h2 { color: #fff; font-size: 1.5rem; margin-bottom: 10px; }
+    #fees-info p { color: #b2bec3; font-size: 1rem; max-width: 650px; margin: 0 auto; }
+    .session-badge {
+      display: inline-block; margin-top: 16px;
+      background: rgba(30,144,255,0.2); border: 1px solid rgba(30,144,255,0.4);
+      padding: 8px 24px; border-radius: 50px; font-size: 0.9rem;
+      color: #74b9ff;
+    }
+
+    /* FEE TABLES */
+    #fees-tables { background: #fff; padding: 72px 40px; }
+    .fee-section { margin-bottom: 48px; }
+    .fee-section:last-child { margin-bottom: 0; }
+    .fee-section-title {
+      background: linear-gradient(135deg, #1e90ff, #0d8bf0);
+      color: #fff; padding: 12px 20px; border-radius: 10px;
+      margin-bottom: 16px; font-size: 1.05rem; font-weight: 700;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .fee-section-title .icon { font-size: 1.3rem; }
+    .fee-table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    th, td {
+      border: 1px solid #d5dbe6; padding: 12px 16px; text-align: center; font-size: 0.92rem;
+    }
+    thead th {
+      background: #0d1b2a; color: #fff; font-weight: 600; white-space: nowrap;
+    }
+    tbody tr:nth-child(even) { background: #f4f7fb; }
+    tbody tr:hover { background: #e8f0fe; }
+    .class-col { text-align: left; font-weight: 500; }
+    .total-col { font-weight: 700; color: #1e90ff; }
+
+    /* LEGEND */
+    #legend {
+      background: #f5f6fa; padding: 50px 40px; text-align: center;
+    }
+    .legend-grid {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 900px; margin: 0 auto;
+    }
+    .legend-item {
+      background: #fff; border-radius: 10px; padding: 18px 28px;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.06); min-width: 180px;
+      border-top: 4px solid #1e90ff;
+    }
+    .legend-item .label { font-size: 0.8rem; color: #636e72; text-transform: uppercase; letter-spacing: 1px; }
+    .legend-item .value { font-size: 1rem; color: #0d1b2a; font-weight: 700; margin-top: 4px; }
+
+    /* ADMISSION CTA */
+    .admission-cta {
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      color: #fff; text-align: center; padding: 60px 40px;
+    }
+    .admission-cta h2 { font-size: 2rem; margin-bottom: 14px; }
+    .admission-cta p { font-size: 1.05rem; opacity: 0.92; margin-bottom: 28px; }
+    .btn-white {
+      display: inline-block; padding: 14px 36px; background: #fff; color: #1e90ff;
+      border: 2px solid #fff; border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem; transition: all 0.25s;
+    }
+    .btn-white:hover { background: transparent; color: #fff; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: #0d1b2a; color: #b2bec3;
+      padding: 50px 40px 24px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px; max-width: 1100px; margin: 0 auto 40px;
+    }
+    .footer-col h3 { color: #fff; margin-bottom: 16px; font-size: 1rem; }
+    .footer-col p, .footer-col a { color: #b2bec3; font-size: 0.9rem; line-height: 2; display: block; }
+    .footer-col a:hover { color: #1e90ff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center; padding-top: 20px; font-size: 0.85rem; color: #636e72;
+    }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; padding: 14px 20px; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+      .page-header h1 { font-size: 2rem; }
+      section, #fees-tables, #legend { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <div class="logo-circle">MSC</div>
+      <span>Modern Science College</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="fees.html" class="active">Fees</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Fees Structure</p>
+    <h1>Fees Structure</h1>
+    <p>Transparent and affordable fee structure for all classes from P.G. to XII</p>
+  </div>
+
+  <!-- INFO BANNER -->
+  <div id="fees-info">
+    <h2>📋 Fees Structure — Academic Session 2025-26</h2>
+    <p>Applicable for P.G. to XII classes — H.M. &amp; E.M. streams. Please contact the office for any queries regarding fee payment.</p>
+    <span class="session-badge">Session: 2025-26</span>
+  </div>
+
+  <!-- FEE TABLES -->
+  <div id="fees-tables">
+
+    <div class="section-title">
+      <h2>Fee Details</h2>
+      <p>Breakdown of admission, registration, monthly, and other charges</p>
+    </div>
+
+    <!-- P.G. Section -->
+    <div class="fee-section">
+      <div class="fee-section-title"><span class="icon">🎒</span> P.G. Section</div>
+      <div class="fee-table-wrap">
+        <table>
+          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Adm. + Reg.</th><th>Monthly</th><th>T.B.D.</th><th class="total-col">Total Amount</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td class="class-col">P.G. to V New (E.M.)</td><td>₹3,650</td><td>₹600</td><td>₹250</td><td class="total-col">₹4,500</td></tr>
+            <tr><td>2</td><td class="class-col">P.G. to V Re (E.M.)</td><td>₹2,250</td><td>₹600</td><td>₹150</td><td class="total-col">₹3,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Class VI to VIII -->
+    <div class="fee-section">
+      <div class="fee-section-title"><span class="icon">📘</span> Class VI to VIII</div>
+      <div class="fee-table-wrap">
+        <table>
+          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Adm. + Reg.</th><th>Monthly</th><th>T.B.D.</th><th class="total-col">Total Amount</th></tr></thead>
+          <tbody>
+            <tr><td>3</td><td class="class-col">VI to VIII New (E.M.)</td><td>₹4,550</td><td>₹700</td><td>₹250</td><td class="total-col">₹5,500</td></tr>
+            <tr><td>4</td><td class="class-col">VI to VIII Re (E.M.)</td><td>₹2,650</td><td>₹700</td><td>₹150</td><td class="total-col">₹3,500</td></tr>
+            <tr><td>5</td><td class="class-col">VI to VIII New (H.M.)</td><td>₹2,250</td><td>₹500</td><td>₹250</td><td class="total-col">₹3,000</td></tr>
+            <tr><td>6</td><td class="class-col">VI to VIII Re (H.M.)</td><td>₹1,350</td><td>₹500</td><td>₹150</td><td class="total-col">₹2,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Class IX -->
+    <div class="fee-section">
+      <div class="fee-section-title"><span class="icon">📕</span> Class IX</div>
+      <div class="fee-table-wrap">
+        <table>
+          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Adm. + Reg.</th><th>Monthly</th><th>T.B.D.</th><th class="total-col">Total Amount</th></tr></thead>
+          <tbody>
+            <tr><td>7</td><td class="class-col">IX New (E.M.)</td><td>₹5,350</td><td>₹800</td><td>₹250</td><td class="total-col">₹6,400</td></tr>
+            <tr><td>8</td><td class="class-col">IX Re (E.M.)</td><td>₹3,750</td><td>₹800</td><td>—</td><td class="total-col">₹4,550</td></tr>
+            <tr><td>9</td><td class="class-col">IX New (H.M.)</td><td>₹3,000</td><td>₹600</td><td>₹250</td><td class="total-col">₹3,850</td></tr>
+            <tr><td>10</td><td class="class-col">IX Re (H.M.)</td><td>₹2,400</td><td>₹600</td><td>—</td><td class="total-col">₹3,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Class X -->
+    <div class="fee-section">
+      <div class="fee-section-title"><span class="icon">📗</span> Class X</div>
+      <div class="fee-table-wrap">
+        <table>
+          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Adm. + Reg.</th><th>Monthly</th><th>T.B.D.</th><th class="total-col">Total Amount</th></tr></thead>
+          <tbody>
+            <tr><td>11</td><td class="class-col">X Re (E.M.)</td><td>₹4,200</td><td>₹800</td><td>—</td><td class="total-col">₹5,000</td></tr>
+            <tr><td>12</td><td class="class-col">X Re (H.M.)</td><td>₹2,550</td><td>₹600</td><td>—</td><td class="total-col">₹3,150</td></tr>
+            <tr><td>19</td><td class="class-col">X New (H.M.)</td><td>₹5,150</td><td>₹600</td><td>₹250</td><td class="total-col">₹6,000</td></tr>
+            <tr><td>20</td><td class="class-col">X New (E.M.)</td><td>₹5,950</td><td>₹800</td><td>₹250</td><td class="total-col">₹7,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Class XI -->
+    <div class="fee-section">
+      <div class="fee-section-title"><span class="icon">📙</span> Class XI</div>
+      <div class="fee-table-wrap">
+        <table>
+          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Adm. + Reg.</th><th>Monthly</th><th>T.B.D.</th><th class="total-col">Total Amount</th></tr></thead>
+          <tbody>
+            <tr><td>13</td><td class="class-col">XI New (E.M.)</td><td>₹6,000</td><td>₹1,000</td><td>₹250</td><td class="total-col">₹7,250</td></tr>
+            <tr><td>14</td><td class="class-col">XI Re (E.M.)</td><td>₹4,000</td><td>₹1,000</td><td>—</td><td class="total-col">₹5,000</td></tr>
+            <tr><td>15</td><td class="class-col">XI New (H.M.)</td><td>₹3,450</td><td>₹800</td><td>₹250</td><td class="total-col">₹4,500</td></tr>
+            <tr><td>16</td><td class="class-col">XI Re (H.M.)</td><td>₹2,500</td><td>₹800</td><td>—</td><td class="total-col">₹3,300</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Class XII -->
+    <div class="fee-section">
+      <div class="fee-section-title"><span class="icon">📔</span> Class XII</div>
+      <div class="fee-table-wrap">
+        <table>
+          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Adm. + Reg.</th><th>Monthly</th><th>T.B.D.</th><th class="total-col">Total Amount</th></tr></thead>
+          <tbody>
+            <tr><td>17</td><td class="class-col">XII Re (E.M.)</td><td>₹6,000</td><td>₹1,000</td><td>—</td><td class="total-col">₹7,000</td></tr>
+            <tr><td>18</td><td class="class-col">XII Re (H.M.)</td><td>₹2,950</td><td>₹800</td><td>—</td><td class="total-col">₹3,750</td></tr>
+            <tr><td>21</td><td class="class-col">XII New (H.M.)</td><td>₹5,450</td><td>₹800</td><td>₹250</td><td class="total-col">₹6,500</td></tr>
+            <tr><td>22</td><td class="class-col">XII New (E.M.)</td><td>₹7,750</td><td>₹1,000</td><td>₹250</td><td class="total-col">₹9,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LEGEND -->
+  <div id="legend">
+    <div class="section-title">
+      <h2>Fee Components</h2>
+      <p>Understanding what each charge covers</p>
+    </div>
+    <div class="legend-grid">
+      <div class="legend-item">
+        <div class="label">Adm. + Reg.</div>
+        <div class="value">Admission &amp; Registration<br>Fee (one-time)</div>
+      </div>
+      <div class="legend-item">
+        <div class="label">Monthly</div>
+        <div class="value">Monthly Tuition<br>Fee (per month)</div>
+      </div>
+      <div class="legend-item">
+        <div class="label">T.B.D.</div>
+        <div class="value">Term / Other<br>Charges</div>
+      </div>
+      <div class="legend-item">
+        <div class="label">E.M. / H.M.</div>
+        <div class="value">English Medium /<br>Hindi Medium</div>
+      </div>
+      <div class="legend-item">
+        <div class="label">New / Re</div>
+        <div class="value">New Admission /<br>Re-Admission</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMISSION CTA -->
+  <section class="admission-cta">
+    <h2>Admissions Open for 2025-26</h2>
+    <p>Enroll your child today. Contact us for admission forms and more details.</p>
+    <a href="about.html" class="btn-white">Contact Us →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Modern Science College</h3>
+        <p>Recognized by the Government of Uttar Pradesh. Located at Bela Pratapgarh.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="fees.html">Fees</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p>📍 Bela Pratapgarh, Uttar Pradesh</p>
+        <p>📞 082990 57197</p>
+        <p>✉️ mscpbh@gmail.com</p>
+        <p><a href="https://www.facebook.com/mscpbh" target="_blank">📘 fb.com/mscpbh</a></p>
+      </div>
+      <div class="footer-col">
+        <h3>Affiliation</h3>
+        <p>Recognized by the Government of Uttar Pradesh.</p>
+        <p>Affiliated with the Government of Uttar Pradesh.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Modern Science College, Pratapgarh. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
