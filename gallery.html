@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery — Modern Science College, Pratapgarh</title>
+  <title>Gallery — Modern Science School, Jogapur Pratapgarh</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -39,6 +39,83 @@
     .nav-links a:hover, .nav-links a.active {
       background: #1e90ff; color: #fff;
     }
+
+  /* ─── LOADER OVERLAY ─── */
+  #loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, #0a1628 0%, #050d1a 70%, #020810 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #loader-overlay.hidden { opacity: 0; visibility: hidden; }
+  .loader-wrapper { position: relative; width: 260px; height: 260px; display: flex; align-items: center; justify-content: center; }
+  .loader-ring-outer { position: absolute; width: 220px; height: 220px; border-radius: 50%; border: 2px solid rgba(30,144,255,0.15); box-shadow: 0 0 30px rgba(30,144,255,0.08), inset 0 0 30px rgba(30,144,255,0.05); }
+  .loader-ring { position: absolute; width: 200px; height: 200px; border-radius: 50%; border: 2.5px solid transparent; border-top-color: #1e90ff; border-right-color: rgba(0,184,148,0.6); animation: ring-spin 2s cubic-bezier(0.5,0,0.5,1) infinite; filter: drop-shadow(0 0 8px rgba(30,144,255,0.5)); }
+  .loader-ring-inner { position: absolute; width: 170px; height: 170px; border-radius: 50%; border: 1.5px solid transparent; border-bottom-color: rgba(0,184,148,0.4); border-left-color: rgba(30,144,255,0.3); animation: ring-spin 3s cubic-bezier(0.5,0,0.5,1) infinite reverse; filter: drop-shadow(0 0 6px rgba(0,184,148,0.3)); }
+  .loader-ring-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #1e90ff; box-shadow: 0 0 12px #1e90ff, 0 0 24px rgba(30,144,255,0.4); top: -4px; left: 50%; transform: translateX(-50%); }
+  .loader-center { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .loader-icon { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg,#1e90ff,#00b894); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #fff; margin-bottom: 14px; box-shadow: 0 0 40px rgba(30,144,255,0.35), 0 0 80px rgba(0,184,148,0.15); animation: icon-pulse 2s ease-in-out infinite; }
+  .loader-college-name { color: #fff; font-size: 1rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 0 20px rgba(30,144,255,0.5); white-space: nowrap; }
+  .loader-college-sub { color: #74b9ff; font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; opacity: 0.8; }
+  .bird-orbit-container { position: absolute; width: 260px; height: 260px; top: 0; left: 0; animation: none; }
+  .bird { position: absolute; width: 22px; height: 22px; top: 50%; left: 50%; margin-top: -11px; margin-left: -11px; animation: bird-orbit 2.2s linear infinite; }
+  .bird svg { width: 22px; height: 22px; filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px rgba(30,144,255,0.7)); animation: wing-flap 0.35s ease-in-out infinite alternate; }
+  #trail-canvas { position: absolute; top: -60px; left: -60px; width: 380px; height: 380px; pointer-events: none; z-index: 1; }
+  #particle-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+  .loader-tagline { margin-top: 36px; color: #636e72; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; animation: tagline-pulse 2s ease-in-out infinite; }
+  .loader-progress-wrap { margin-top: 20px; width: 160px; height: 2px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+  .loader-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg,#1e90ff,#00b894); border-radius: 2px; box-shadow: 0 0 10px rgba(30,144,255,0.5); transition: width 0.1s linear; }
+  @keyframes ring-spin { to { transform: rotate(360deg); } }
+  @keyframes icon-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  @keyframes wing-flap { 0% { transform: scaleY(1) rotate(0deg); } 100% { transform: scaleY(0.7) rotate(-5deg); } }
+  @keyframes tagline-pulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+  @keyframes bird-fly-away { 0% { transform: translate(0,0) rotate(0deg); opacity: 1; } 30% { transform: translate(0,-80px) rotate(-5deg); opacity: 1; } 70% { opacity: 0.7; } 100% { transform: translate(0,-260px) rotate(-15deg); opacity: 0; } }
+  @keyframes loader-exit { 0% { transform: scale(1); opacity: 1; filter: blur(0px); } 100% { transform: scale(0.6); opacity: 0; filter: blur(12px); } }
+  @keyframes fade-out-all { to { opacity: 0; } }
+  @keyframes dot-twinkle { 0%,100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
+  .star { position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%; animation: dot-twinkle var(--dur) ease-in-out infinite; animation-delay: var(--delay); opacity: 0.3; }
+  @media (max-width: 480px) {
+    .loader-wrapper { width: 200px; height: 200px; }
+    .loader-ring-outer { width: 170px; height: 170px; }
+    .loader-ring { width: 155px; height: 155px; }
+    .loader-ring-inner { width: 130px; height: 130px; }
+    .loader-college-name { font-size: 0.85rem; letter-spacing: 1px; }
+    .loader-college-sub { font-size: 0.65rem; }
+    .loader-icon { width: 50px; height: 50px; font-size: 1.4rem; }
+    #trail-canvas { top: -40px; left: -40px; width: 280px; height: 280px; }
+    .bird-orbit-container { width: 200px; height: 200px; }
+  }
+
+    /* Hamburger */
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      z-index: 1000;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: #dfe6e9;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
     .page-header {
       background: linear-gradient(135deg, rgba(13,27,42,0.85), rgba(30,144,255,0.65)),
@@ -169,8 +246,22 @@
     }
 
     @media (max-width: 768px) {
-      nav { flex-direction: column; padding: 14px 20px; }
-      .nav-links { flex-wrap: wrap; justify-content: center; }
+      nav { padding: 12px 20px; position: relative; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 2px;
+        background: #0d1b2a;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 8px 16px 12px;
+        border-top: 1px solid #1a2d45;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { border-radius: 6px; padding: 12px 14px; }
       .page-header h1 { font-size: 2rem; }
       section, #gallery-main, #social-strip { padding: 50px 20px; }
       .gallery-grid { grid-template-columns: 1fr; }
@@ -179,10 +270,47 @@
 </head>
 <body>
 
+  <!-- LOADER -->
+  <div id="loader-overlay">
+    <div class="star" style="top:10%;left:15%;--dur:3s;--delay:0s"></div>
+    <div class="star" style="top:20%;left:80%;--dur:2.5s;--delay:0.5s"></div>
+    <div class="star" style="top:60%;left:10%;--dur:3.5s;--delay:1s"></div>
+    <div class="star" style="top:75%;left:70%;--dur:2.8s;--delay:0.3s"></div>
+    <div class="star" style="top:40%;left:90%;--dur:3.2s;--delay:0.8s"></div>
+    <div class="star" style="top:85%;left:25%;--dur:2.6s;--delay:1.2s"></div>
+    <div class="star" style="top:15%;left:50%;--dur:3s;--delay:0.6s"></div>
+    <div class="star" style="top:50%;left:5%;--dur:2.4s;--delay:1.5s"></div>
+    <div class="star" style="top:30%;left:35%;--dur:3.3s;--delay:0.2s"></div>
+    <div class="star" style="top:65%;left:55%;--dur:2.7s;--delay:0.9s"></div>
+    <canvas id="particle-canvas"></canvas>
+    <div class="loader-wrapper" id="loader-wrapper">
+      <canvas id="trail-canvas" width="380" height="380"></canvas>
+      <div class="loader-ring-outer"></div>
+      <div class="loader-ring"><div class="loader-ring-dot"></div></div>
+      <div class="loader-ring-inner"></div>
+      <div class="bird-orbit-container" id="bird-orbit">
+        <div class="bird" id="bird">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12C5 8 8 5 12 5C16 5 19 8 21 12C19 10 16 9 12 9C8 9 5 10 3 12Z" fill="url(#bird-grad)" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M12 5C12 5 13.5 2.5 12 1C10.5 2.5 12 5 12 5Z" fill="rgba(255,255,255,0.85)"/>
+            <defs><linearGradient id="bird-grad" x1="3" y1="5" x2="21" y2="14"><stop offset="0%" stop-color="#1e90ff"/><stop offset="100%" stop-color="#74b9ff"/></linearGradient></defs>
+          </svg>
+        </div>
+      </div>
+      <div class="loader-center" id="loader-center">
+        <div class="loader-icon">🎓</div>
+        <div class="loader-college-name">Modern Science College</div>
+        <div class="loader-college-sub">Pratapgarh</div>
+      </div>
+    </div>
+    <div class="loader-progress-wrap"><div class="loader-progress-bar" id="progress-bar"></div></div>
+    <div class="loader-tagline" id="loader-tagline">Excellence in Education</div>
+  </div>
+
   <nav>
     <div class="logo">
       <div class="logo-circle">MSC</div>
-      <span>Modern Science College</span>
+      <span>Modern Science School</span>
     </div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -192,12 +320,15 @@
       <li><a href="fees.html">Fees</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="hamburger" aria-label="Toggle navigation" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <div class="page-header">
     <p class="breadcrumb"><a href="index.html">Home</a> / Gallery</p>
     <h1>Campus Gallery</h1>
-    <p>Take a visual tour of our beautiful campus and vibrant student life at Modern Science College.</p>
+    <p>Take a visual tour of our beautiful campus and vibrant student life at Modern Science School.</p>
   </div>
 
   <!-- MAIN GALLERY -->
@@ -209,15 +340,15 @@
     <div class="gallery-grid">
 
       <div class="gallery-card">
-        <img src="../img/collegepic1.jpeg" alt="College Building" />
+        <img src="../img/collegepic1.jpeg" alt="School Building" />
         <div class="gallery-caption">
-          <h3>🏛️ College Campus</h3>
-          <p>The main building of Modern Science College, Pratapgarh — a hub of learning and growth.</p>
+          <h3>🏛️ School Campus</h3>
+          <p>The main building of Modern Science School, Jogapur Pratapgarh — a hub of learning and growth.</p>
         </div>
       </div>
 
       <div class="gallery-card">
-        <img src="../img/collegepic2.jpeg" alt="College Grounds" />
+        <img src="../img/collegepic2.jpeg" alt="School Grounds" />
         <div class="gallery-caption">
           <h3>🌳 Beautiful Grounds</h3>
           <p>Lush green campus providing a serene and inspiring environment for students.</p>
@@ -225,7 +356,7 @@
       </div>
 
       <div class="gallery-card">
-        <img src="../img/collegepic3.jpeg" alt="College Facilities" />
+        <img src="../img/collegepic3.jpeg" alt="School Facilities" />
         <div class="gallery-caption">
           <h3>🔬 Modern Facilities</h3>
           <p>State-of-the-art laboratories and facilities supporting practical learning.</p>
@@ -279,7 +410,7 @@
   <section id="events">
     <div class="section-title">
       <h2>Events &amp; Activities</h2>
-      <p>Life beyond the classroom at Modern Science College</p>
+      <p>Life beyond the classroom at Modern Science School</p>
     </div>
     <div class="events-grid">
       <div class="event-card">
@@ -295,7 +426,7 @@
         <div class="event-body">
           <p class="event-date">Sports</p>
           <h3>Sports Day &amp; Tournaments</h3>
-          <p>Inter-college and intra-college sports competitions promoting fitness and teamwork.</p>
+          <p>Inter-school and intra-school sports competitions promoting fitness and teamwork.</p>
         </div>
       </div>
       <div class="event-card">
@@ -348,8 +479,8 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <h3>Modern Science College</h3>
-        <p>Nurturing minds, building character, shaping futures at Bela Pratapgarh, Uttar Pradesh.</p>
+        <h3>Modern Science School</h3>
+        <p>Nurturing minds, building character, shaping futures at Bela Jogapur Pratapgarh, Uttar Pradesh.</p>
       </div>
       <div class="footer-col">
         <h3>Quick Links</h3>
@@ -361,7 +492,7 @@
       </div>
       <div class="footer-col">
         <h3>Contact</h3>
-        <p>📍 Bela Pratapgarh, Uttar Pradesh</p>
+        <p>📍 Bela Jogapur Pratapgarh, Uttar Pradesh</p>
         <p>📞 082990 57197</p>
         <p>✉️ mscpbh@gmail.com</p>
         <p><a href="https://www.facebook.com/mscpbh" target="_blank">📘 fb.com/mscpbh</a></p>
@@ -376,9 +507,52 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Modern Science College, Pratapgarh. All Rights Reserved.</p>
+      <p>&copy; 2025 Modern Science School, Jogapur Pratapgarh. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    'use strict';
+    var TOTAL_DURATION = 3000;
+    var BIRD_ORBIT_RADIUS = 125;
+    var BIRD_ORBIT_SPEED = 2200;
+    var CENTER_X = 190;
+    var CENTER_Y = 190;
+    var birdOrbit = document.getElementById('bird-orbit');
+    var bird = document.getElementById('bird');
+    var progressBar = document.getElementById('progress-bar');
+    var loaderWrapper = document.getElementById('loader-wrapper');
+    var loaderTagline = document.getElementById('loader-tagline');
+    var overlay = document.getElementById('loader-overlay');
+    var trailCanvas = document.getElementById('trail-canvas');
+    var trailCtx = trailCanvas.getContext('2d');
+    var particleCanvas = document.getElementById('particle-canvas');
+    var particleCtx = particleCanvas.getContext('2d');
+    var startTime = Date.now();
+    var animating = true;
+    var birdAngle = 0;
+    var trail = [];
+    var particles = [];
+    var orbitDots = [];
+    var NUM_ORBIT_DOTS = 8;
+    for (var d = 0; d < NUM_ORBIT_DOTS; d++) {
+      orbitDots.push({ angle: (Math.PI*2/NUM_ORBIT_DOTS)*d, speed: 0.004+Math.random()*0.003, radius: BIRD_ORBIT_RADIUS+(Math.random()-0.5)*20, size: Math.random()*2+1, opacity: Math.random()*0.4+0.2 });
+    }
+    function resizeCanvases() { particleCanvas.width=window.innerWidth; particleCanvas.height=window.innerHeight; }
+    resizeCanvases();
+    window.addEventListener('resize', resizeCanvases);
+    function addTrailParticle(x,y){ trail.push({x:x,y:y,radius:Math.random()*3+1.5,opacity:0.8,decay:Math.random()*0.015+0.01}); if(trail.length>60)trail.shift(); }
+    function drawTrail(){ trailCtx.clearRect(0,0,380,380); for(var i=trail.length-1;i>=0;i--){var p=trail[i];p.opacity-=p.decay;p.radius*=0.97;if(p.opacity<=0){trail.splice(i,1);continue;}var g=trailCtx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.radius*3);g.addColorStop(0,'rgba(30,144,255,'+(p.opacity*0.9)+')');g.addColorStop(0.4,'rgba(0,184,148,'+(p.opacity*0.5)+')');g.addColorStop(1,'rgba(116,185,255,0)');trailCtx.beginPath();trailCtx.arc(p.x,p.y,p.radius*3,0,Math.PI*2);trailCtx.fillStyle=g;trailCtx.fill();} }
+    function spawnBurstParticles(cx,cy,count){for(var i=0;i<count;i++){var a=Math.random()*Math.PI*2,s=Math.random()*4+1.5;particles.push({x:cx+(Math.random()-0.5)*60,y:cy+(Math.random()-0.5)*60,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1.5,radius:Math.random()*3+1,opacity:1,decay:Math.random()*0.012+0.006,gravity:0.02+Math.random()*0.03,white:Math.random()>0.3});}}
+    function spawnFlyingUpParticles(cx,cy,count){for(var i=0;i<count;i++){var a=-Math.PI/2+(Math.random()-0.5)*1.2,s=Math.random()*3+1;particles.push({x:cx+(Math.random()-0.5)*40,y:cy,vx:Math.cos(a)*s,vy:Math.sin(a)*s,radius:Math.random()*2.5+0.8,opacity:1,decay:Math.random()*0.01+0.005,gravity:-0.01,white:true});}}
+    function updateParticles(){particleCtx.clearRect(0,0,particleCanvas.width,particleCanvas.height);for(var i=particles.length-1;i>=0;i--){var p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vy+=p.gravity;p.vx*=0.99;p.opacity-=p.decay;if(p.opacity<=0){particles.splice(i,1);continue;}var r=p.radius,g=particleCtx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*2.5);if(p.white){g.addColorStop(0,'rgba(255,255,255,'+p.opacity+')');g.addColorStop(0.5,'rgba(200,230,255,'+(p.opacity*0.5)+')');g.addColorStop(1,'rgba(255,255,255,0)');}else{g.addColorStop(0,'rgba(30,144,255,'+p.opacity+')');g.addColorStop(0.5,'rgba(0,184,148,'+(p.opacity*0.4)+')');g.addColorStop(1,'rgba(30,144,255,0)');}particleCtx.beginPath();particleCtx.arc(p.x,p.y,r*2.5,0,Math.PI*2);particleCtx.fillStyle=g;particleCtx.fill();}}
+    var exitStarted=false,exitStartTime=0;
+    function animate(){if(!animating)return;var elapsed=Date.now()-startTime,progress=Math.min(elapsed/TOTAL_DURATION,1);progressBar.style.width=(progress*100)+'%';if(progress<0.9){birdAngle+=(16/BIRD_ORBIT_SPEED)*Math.PI*2;var bx=Math.cos(birdAngle)*BIRD_ORBIT_RADIUS,by=Math.sin(birdAngle)*BIRD_ORBIT_RADIUS;bird.style.transform='translate('+bx+'px,'+by+'px) rotate('+(birdAngle+Math.PI/2)+'rad)';bird.style.opacity='1';addTrailParticle(CENTER_X+bx,CENTER_Y+by);}drawTrail();for(var d=0;d<orbitDots.length;d++){orbitDots[d].angle+=orbitDots[d].speed;var odx=CENTER_X+Math.cos(orbitDots[d].angle)*orbitDots[d].radius,ody=CENTER_Y+Math.sin(orbitDots[d].angle)*orbitDots[d].radius;trailCtx.beginPath();trailCtx.arc(odx,ody,orbitDots[d].size,0,Math.PI*2);trailCtx.fillStyle='rgba(30,144,255,'+orbitDots[d].opacity+')';trailCtx.fill();}updateParticles();if(progress>=1&&!exitStarted){exitStarted=true;exitStartTime=Date.now();birdOrbit.style.transition='opacity 0.3s';birdOrbit.style.opacity='0';var rect=bird.getBoundingClientRect();spawnFlyingUpParticles(rect.left+rect.width/2,rect.top+rect.height/2,40);spawnBurstParticles(CENTER_X,CENTER_Y,60);bird.style.transition='all 1.2s cubic-bezier(0.25,0.46,0.45,0.94)';bird.style.transform='translate(0px,-200px) rotate(-20deg)';bird.style.opacity='0';}if(exitStarted){var ep=(Date.now()-exitStartTime)/1200;if(ep<1){var e=1-Math.pow(1-ep,3);loaderWrapper.style.transition='none';loaderWrapper.style.transform='scale('+(1-e*0.4)+')';loaderWrapper.style.opacity=1-e;loaderWrapper.style.filter='blur('+(e*12)+'px)';}else{loaderWrapper.style.opacity='0';loaderWrapper.style.transform='scale(0.6)';loaderWrapper.style.filter='blur(12px)';}if(loaderTagline)loaderTagline.style.opacity=Math.max(0,1-ep*2);}if(exitStarted&&(Date.now()-exitStartTime)>1500){finishLoading();return;}requestAnimationFrame(animate);}
+    function finishLoading(){animating=false;particleCtx.clearRect(0,0,particleCanvas.width,particleCanvas.height);overlay.classList.add('hidden');setTimeout(function(){overlay.style.display='none';},800);}
+    requestAnimationFrame(animate);
+  })();
+  </script>
 
 </body>
 </html>
