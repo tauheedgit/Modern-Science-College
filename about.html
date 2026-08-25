@@ -151,19 +151,32 @@
     .timeline-body h4 { color: #0d1b2a; margin-bottom: 6px; font-size: 0.95rem; }
     .timeline-body p { color: #636e72; font-size: 0.88rem; }
 
-    /* LEADERSHIP */
+    /* ─── LEADERSHIP CARDS ─── */
     #leadership { background: #fff; }
-    .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
-    .leader-card { text-align: center; }
-    .leader-avatar {
-      width: 100px; height: 100px; border-radius: 50%;
-      background: linear-gradient(135deg, #1e90ff, #00b894);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem; color: #fff; margin: 0 auto 14px;
+    .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+    .leader-card {
+      text-align: center;
+      background: #f8f9fa;
+      border-radius: 14px;
+      padding: 30px 24px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .leader-card h3 { color: #0d1b2a; font-size: 1rem; }
-    .leader-card .role { color: #1e90ff; font-size: 0.88rem; font-weight: 600; }
-    .leader-card .desc { color: #636e72; font-size: 0.85rem; margin-top: 6px; }
+    .leader-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.13);
+    }
+    .leader-img {
+      width: 200px; height: 200px; border-radius: 10px;
+      object-fit: contain;
+      background-size: cover;
+      border: 4px solid #1e90ff;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(30,144,255,0.2);
+    }
+    .leader-card h3 { color: #0d1b2a; font-size: 1.05rem; margin-bottom: 4px; }
+    .leader-card .role { color: #1e90ff; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
+    .leader-card .desc { color: #636e72; font-size: 0.85rem; margin-top: 6px; line-height: 1.6; }
 
     /* FOOTER */
     footer {
@@ -205,6 +218,63 @@
       #about-intro { padding: 50px 20px; }
       .about-content { grid-template-columns: 1fr; gap: 30px; }
       .mv-grid { grid-template-columns: 1fr; }
+    }
+
+    /* FACEBOOK POSTS */
+    @media (max-width: 768px) {
+      #fb-posts { padding: 50px 20px; }
+      .fb-posts-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── FACEBOOK POSTS ─── */
+    #fb-posts { background: #1877F2; padding: 72px 40px; }
+    #fb-posts .section-title h2 { color: #fff; }
+    #fb-posts .section-title p { color: rgba(255,255,255,0.8); }
+    .fb-posts-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .fb-post-card {
+      display: block; text-decoration: none;
+      background: #fff; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .fb-post-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    }
+    .fb-post-preview {
+      width: 100%; height: 220px;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative;
+    }
+    .fb-post-preview .play-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.25);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .fb-post-card:hover .play-overlay { opacity: 1; }
+    .play-overlay span { font-size: 3rem; }
+    .fb-post-body {
+      padding: 16px 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .fb-post-body .fb-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #1877F2; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .fb-post-body .fb-label {
+      color: #1877F2; font-size: 0.85rem; font-weight: 600;
+    }
+    .fb-post-body .fb-link-text {
+      color: #636e72; font-size: 0.78rem;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
 
   /* ─── LOADER OVERLAY ─── */
@@ -562,6 +632,76 @@
     </div>
   </section>
 
+  <!-- FACEBOOK POSTS -->
+  <section id="fb-posts">
+    <div class="section-title">
+      <h2>Facebook Posts</h2>
+      <p>Stay connected — view our latest Facebook posts and videos</p>
+    </div>
+    <div class="fb-posts-grid">
+      <a class="fb-post-card" href="https://www.facebook.com/share/1E4288bNbo/" target="_blank" rel="noopener">
+        <div class="fb-post-preview">📘<div class="play-overlay"><span>🔗</span></div></div>
+        <div class="fb-post-body">
+          <div class="fb-icon">f</div>
+          <div>
+            <div class="fb-label">Facebook Post</div>
+            <div class="fb-link-text">fb.com/mscpbh</div>
+          </div>
+        </div>
+      </a>
+      <a class="fb-post-card" href="https://www.facebook.com/share/p/19G6qmwL4Q/" target="_blank" rel="noopener">
+        <div class="fb-post-preview">📘<div class="play-overlay"><span>🔗</span></div></div>
+        <div class="fb-post-body">
+          <div class="fb-icon">f</div>
+          <div>
+            <div class="fb-label">Facebook Post</div>
+            <div class="fb-link-text">fb.com/mscpbh</div>
+          </div>
+        </div>
+      </a>
+      <a class="fb-post-card" href="https://www.facebook.com/share/p/1BG4HAQSHG/" target="_blank" rel="noopener">
+        <div class="fb-post-preview">📘<div class="play-overlay"><span>🔗</span></div></div>
+        <div class="fb-post-body">
+          <div class="fb-icon">f</div>
+          <div>
+            <div class="fb-label">Facebook Post</div>
+            <div class="fb-link-text">fb.com/mscpbh</div>
+          </div>
+        </div>
+      </a>
+      <a class="fb-post-card" href="https://www.facebook.com/share/v/1CFMctdv98/" target="_blank" rel="noopener">
+        <div class="fb-post-preview">🎬<div class="play-overlay"><span>🔗</span></div></div>
+        <div class="fb-post-body">
+          <div class="fb-icon">f</div>
+          <div>
+            <div class="fb-label">Facebook Video</div>
+            <div class="fb-link-text">fb.com/mscpbh</div>
+          </div>
+        </div>
+      </a>
+      <a class="fb-post-card" href="https://www.facebook.com/share/v/14sAwD8j9uW/" target="_blank" rel="noopener">
+        <div class="fb-post-preview">🎬<div class="play-overlay"><span>🔗</span></div></div>
+        <div class="fb-post-body">
+          <div class="fb-icon">f</div>
+          <div>
+            <div class="fb-label">Facebook Video</div>
+            <div class="fb-link-text">fb.com/mscpbh</div>
+          </div>
+        </div>
+      </a>
+      <a class="fb-post-card" href="https://www.facebook.com/share/v/1EmYm3dr8F/" target="_blank" rel="noopener">
+        <div class="fb-post-preview">🎬<div class="play-overlay"><span>🔗</span></div></div>
+        <div class="fb-post-body">
+          <div class="fb-icon">f</div>
+          <div>
+            <div class="fb-label">Facebook Video</div>
+            <div class="fb-link-text">fb.com/mscpbh</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- LEADERSHIP -->
   <section id="leadership">
     <div class="section-title">
@@ -570,23 +710,25 @@
     </div>
     <div class="leader-grid">
       <div class="leader-card">
-        <div class="leader-avatar">👨‍💼</div>
-        <h3>Principal</h3>
-        <p class="role">Head of Institution</p>
-        <p class="desc">Providing visionary leadership and academic oversight to drive institutional excellence.</p>
+        <img class="leader-img" src="../img/RakeshShuklaPrincipal.jpeg" alt="Principal Dr. Rakesh Kumar Shukla" />
+        <h3>Dr. Rakesh Kumar Shukla</h3>
+        <p class="role">Principal</p>
+        <p class="desc">📧 rakeshshukla9450@gmail.com</p>
+        <p class="desc">📱 9450185536</p>
+        <p class="desc">A seasoned educator and academic leader, Principal Dr. Rakesh Kumar Shukla provides visionary leadership and strategic direction to the institution. With his dedication to academic excellence and student welfare, he inspires both staff and students to achieve their highest potential.</p>
       </div>
       <div class="leader-card">
-        <div class="leader-avatar">👩‍🏫</div>
-        <h3>Faculty</h3>
-        <p class="role">Academic Team</p>
-        <p class="desc">A team of dedicated, qualified educators committed to student success and innovation in teaching.</p>
+        <img class="leader-img" src="../img/principalmam.jpeg" alt="Manager Mrs. Sheela Shukla" />
+        <h3>Mrs. Sheela Shukla</h3>
+        <p class="role">Manager</p>
+        <p class="desc">Manager Mrs. Sheela Shukla plays a pivotal role in the smooth administration and management of the school. Her commitment to creating a nurturing environment and her strong organizational skills ensure the institution runs efficiently and effectively.</p>
       </div>
-      <div class="leader-card">
-        <div class="leader-avatar">🎓</div>
+      <!-- <div class="leader-card">
+        <div class="leader-avatar" style="width:130px;height:130px;font-size:3.5rem;background:linear-gradient(135deg,#1e90ff,#00b894);">🎓</div>
         <h3>Alumni Network</h3>
         <p class="role">Our Pride</p>
         <p class="desc">A growing community of successful alumni who carry forward the MSC legacy across the globe.</p>
-      </div>
+      </div> -->
     </div>
   </section>
 

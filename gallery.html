@@ -165,6 +165,77 @@
     .gallery-caption h3 { color: #0d1b2a; font-size: 1rem; margin-bottom: 6px; }
     .gallery-caption p { color: #636e72; font-size: 0.88rem; }
 
+    /* ─── LEADERSHIP CARDS ─── */
+    #leadership-gallery { background: #f5f6fa; }
+    .leadership-gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px; max-width: 900px; margin: 0 auto;
+    }
+    .leader-gallery-card {
+      text-align: center;
+      background: #fff;
+      border-radius: 14px;
+      padding: 30px 24px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .leader-gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.13);
+    }
+    .leader-gallery-img {
+      width: 200px; height: 200px; border-radius: 10px;
+      object-fit: contain;
+      background-size: cover;
+      border: 4px solid #1e90ff;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 14px rgba(30,144,255,0.2);
+    }
+    .leader-gallery-card h3 { color: #0d1b2a; font-size: 1.05rem; margin-bottom: 4px; }
+    .leader-gallery-card .role { color: #1e90ff; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
+    .leader-gallery-card .desc { color: #636e72; font-size: 0.85rem; margin-top: 6px; line-height: 1.6; }
+
+    /* ─── ACHIEVEMENT CARDS ─── */
+    #achievements-gallery { background: #fff; }
+    .achievement-gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px; max-width: 1100px; margin: 0 auto;
+    }
+    .achievement-gallery-card {
+      border-radius: 14px; overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .achievement-gallery-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    }
+    .achievement-gallery-card img {
+      width: 100%; height: 260px; object-fit: cover; display: block;
+      transition: transform 0.4s;
+    }
+    .achievement-gallery-card:hover img { transform: scale(1.05); }
+    .achievement-gallery-card .ach-gallery-body {
+      padding: 20px 22px;
+      border-top: 3px solid #1e90ff;
+    }
+    .achievement-gallery-card .ach-gallery-title {
+      color: #0d1b2a; font-size: 1rem; font-weight: 700; margin-bottom: 6px;
+    }
+    .achievement-gallery-card .ach-gallery-desc {
+      color: #636e72; font-size: 0.88rem; line-height: 1.6;
+    }
+    .achievement-gallery-card .ach-gallery-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 14px;
+      background: linear-gradient(135deg, #1e90ff, #00b894);
+      color: #fff; font-size: 0.78rem; font-weight: 600;
+      border-radius: 20px;
+    }
+
     /* HIGHLIGHT BANNER */
     #gallery-highlight {
       background: linear-gradient(135deg, #0d1b2a, #1a2d45);
@@ -265,6 +336,8 @@
       .page-header h1 { font-size: 2rem; }
       section, #gallery-main, #social-strip { padding: 50px 20px; }
       .gallery-grid { grid-template-columns: 1fr; }
+      .leadership-gallery-grid { grid-template-columns: 1fr; }
+      .achievement-gallery-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -363,6 +436,64 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- LEADERSHIP GALLERY -->
+  <section id="leadership-gallery">
+    <div class="section-title">
+      <h2>Our Leadership</h2>
+      <p>The people who guide our institution with vision and dedication</p>
+    </div>
+    <div class="leadership-gallery-grid">
+      <div class="leader-gallery-card">
+        <img class="leader-gallery-img" src="../img/RakeshShuklaPrincipal.jpeg" alt="Principal Dr. Rakesh Kumar Shukla" />
+        <h3>Dr. Rakesh Kumar Shukla</h3>
+        <p class="role">Principal</p>
+        <p class="desc">📧 rakeshshukla9450@gmail.com</p>
+        <p class="desc">📱 9450185536</p>
+        <p class="desc" style="margin-top:6px;">A seasoned educator and academic leader providing visionary leadership and strategic direction. Dedicated to academic excellence and student welfare.</p>
+      </div>
+      <div class="leader-gallery-card">
+        <img class="leader-gallery-img" src="../img/principalmam.jpeg" alt="Manager Mrs. Sheela Shukla" />
+        <h3>Mrs. Sheela Shukla</h3>
+        <p class="role">Manager</p>
+        <p class="desc">Manager Mrs. Sheela Shukla plays a pivotal role in the smooth administration and management of the school, ensuring efficient operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS GALLERY -->
+  <section id="achievements-gallery">
+    <div class="section-title">
+      <h2>Achievements</h2>
+      <p>Milestones that reflect our commitment to excellence</p>
+    </div>
+    <div class="achievement-gallery-grid">
+      <div class="achievement-gallery-card">
+        <img src="../img/achievement1.jpeg" alt="Academic Excellence" />
+        <div class="ach-gallery-body">
+          <p class="ach-gallery-title">🏆 Academic Excellence - Top Performer</p>
+          <p class="ach-gallery-desc">Our students consistently achieve top ranks in board examinations, setting new benchmarks of academic performance.</p>
+          <span class="ach-gallery-badge">Academic</span>
+        </div>
+      </div>
+      <div class="achievement-gallery-card">
+        <img src="../img/achievement2.jpeg" alt="State Recognition" />
+        <div class="ach-gallery-body">
+          <p class="ach-gallery-title">🏛️ Honored by Former Chief Minister</p>
+          <p class="ach-gallery-desc">Recognized at the state level for outstanding contribution to education and student development.</p>
+          <span class="ach-gallery-badge">Recognition</span>
+        </div>
+      </div>
+      <div class="achievement-gallery-card">
+        <img src="../img/achievement3.jpeg" alt="Science Exhibition" />
+        <div class="ach-gallery-body">
+          <p class="ach-gallery-title">🔬 Best Model at State-Level Science Exhibition</p>
+          <p class="ach-gallery-desc">Students showcased innovative science projects and earned the Best Model award at the state-level science exhibition.</p>
+          <span class="ach-gallery-badge">Innovation</span>
+        </div>
+      </div>
     </div>
   </section>
 

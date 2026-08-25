@@ -124,6 +124,69 @@
     .contact-card a { color: #1e90ff; }
     .contact-card a:hover { text-decoration: underline; }
 
+    /* ─── ENQUIRY FORM ─── */
+    #enquiry-section {
+      padding: 80px 40px;
+      background: #fff;
+    }
+    .enquiry-wrap {
+      max-width: 680px; margin: 0 auto;
+      background: #f8f9fa;
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .enquiry-wrap h2 {
+      text-align: center; color: #0d1b2a; margin-bottom: 6px; font-size: 1.8rem;
+    }
+    .enquiry-wrap .enquiry-sub {
+      text-align: center; color: #636e72; margin-bottom: 28px; font-size: 0.95rem;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-weight: 600; color: #0d1b2a;
+      margin-bottom: 6px; font-size: 0.9rem;
+    }
+    .form-group label .req { color: #e74c3c; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 12px 16px;
+      border: 2px solid #e0e0e0; border-radius: 10px;
+      font-size: 0.95rem; font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: #fff;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #1e90ff;
+      box-shadow: 0 0 0 4px rgba(30,144,255,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .btn-whatsapp {
+      display: block; width: 100%; padding: 14px;
+      background: #25D366; color: #fff; border: none;
+      border-radius: 10px; font-size: 1.05rem; font-weight: 700;
+      cursor: pointer; transition: all 0.3s;
+      font-family: inherit;
+      margin-top: 8px;
+    }
+    .btn-whatsapp:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+    }
+    .btn-whatsapp .btn-icon { margin-right: 8px; }
+    .form-note {
+      text-align: center; color: #636e72; font-size: 0.82rem;
+      margin-top: 12px;
+    }
+
     /* ─── MAP SECTION ─── */
     #map-section {
       padding: 0 40px 80px;
@@ -214,7 +277,9 @@
       .nav-links a { border-radius: 6px; padding: 12px 14px; }
       .hero-content h1 { font-size: 2rem; }
       .about-inner { grid-template-columns: 1fr; }
-      #contact-info, #map-section, #contact-about, #social-strip { padding: 50px 20px; }
+      #contact-info, #map-section, #contact-about, #social-strip, #enquiry-section { padding: 50px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .enquiry-wrap { padding: 28px 20px; }
     }
     /* ─── LOADER OVERLAY ─── */
     #loader-overlay {
@@ -411,6 +476,60 @@
         <p style="margin-top:6px;"><small>Like &amp; follow for updates</small></p>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ENQUIRY FORM -->
+  <section id="enquiry-section">
+    <div class="enquiry-wrap">
+      <h2>Admission Enquiry</h2>
+      <p class="enquiry-sub">Fill the form below and we'll get back to you on WhatsApp</p>
+      <form id="enquiryForm" onsubmit="return submitEnquiry(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Student Name <span class="req">*</span></label>
+            <input type="text" id="studentName" placeholder="Enter student's full name" required />
+          </div>
+          <div class="form-group">
+            <label>Father's Name <span class="req">*</span></label>
+            <input type="text" id="fatherName" placeholder="Enter father's name" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Mobile Number <span class="req">*</span></label>
+            <input type="tel" id="mobile" placeholder="e.g. 9450185536" pattern="[0-9]{10}" required />
+          </div>
+          <div class="form-group">
+            <label>Class / Course Interested <span class="req">*</span></label>
+            <select id="course" required>
+              <option value="">Select Class</option>
+              <option>Class 1</option>
+              <option>Class 2</option>
+              <option>Class 3</option>
+              <option>Class 4</option>
+              <option>Class 5</option>
+              <option>Class 6</option>
+              <option>Class 7</option>
+              <option>Class 8</option>
+              <option>Class 9</option>
+              <option>Class 10</option>
+              <option>Class 11 – Science</option>
+              <option>Class 11 – Arts</option>
+              <option>Class 12 – Science</option>
+              <option>Class 12 – Arts</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message (optional)</label>
+          <textarea id="message" placeholder="Any specific question or query..."></textarea>
+        </div>
+        <button type="submit" class="btn-whatsapp">
+          <span class="btn-icon">💬</span> Send Enquiry on WhatsApp
+        </button>
+        <p class="form-note">Your details will be sent directly to our admission team via WhatsApp</p>
+      </form>
     </div>
   </section>
 
@@ -663,6 +782,27 @@
 
   requestAnimationFrame(animate);
 })();
+
+function submitEnquiry(e){
+  e.preventDefault();
+  var name=document.getElementById('studentName').value.trim();
+  var father=document.getElementById('fatherName').value.trim();
+  var mobile=document.getElementById('mobile').value.trim();
+  var course=document.getElementById('course').value;
+  var msg=document.getElementById('message').value.trim();
+
+  var text='📋 *New Admission Enquiry*%0A%0A';
+  text+='👤 Student Name: '+encodeURIComponent(name)+'%0A';
+  text+='👨 Father\'s Name: '+encodeURIComponent(father)+'%0A';
+  text+='📱 Mobile: '+encodeURIComponent(mobile)+'%0A';
+  text+='📚 Course: '+encodeURIComponent(course)+'%0A';
+  if(msg) text+='💬 Message: '+encodeURIComponent(msg)+'%0A';
+  text+='%0A_Submitted from Modern Science School website_';
+
+  var phone='919450185536';
+  window.open('https://wa.me/'+phone+'?text='+text,'_blank');
+  return false;
+}
 </script>
 </body>
 </html>

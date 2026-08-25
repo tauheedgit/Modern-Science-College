@@ -11,7 +11,6 @@
       font-family: 'Segoe UI', Tahoma, sans-serif;
       background: #f5f6fa; color: #2d3436; line-height: 1.7;
     }
-    a { text-decoration: none; color: inherit; }
 
     nav {
       position: sticky; top: 0; z-index: 999;
@@ -63,7 +62,6 @@
     }
     .section-title p { color: #636e72; margin-top: 10px; }
 
-    /* FEES INFO BANNER */
     #fees-info {
       background: linear-gradient(135deg, #0d1b2a, #1a2d45);
       color: #fff; padding: 50px 40px; text-align: center;
@@ -77,7 +75,6 @@
       color: #74b9ff;
     }
 
-    /* FEE TABLES */
     #fees-tables { background: #fff; padding: 72px 40px; }
     .fee-section { margin-bottom: 48px; }
     .fee-section:last-child { margin-bottom: 0; }
@@ -99,24 +96,10 @@
     tbody tr:nth-child(even) { background: #f4f7fb; }
     tbody tr:hover { background: #e8f0fe; }
     .class-col { text-align: left; font-weight: 500; }
-    .total-col { font-weight: 700; color: #1e90ff; }
+    .fee-note {
+      margin-top: 10px; font-size: 0.85rem; color: #636e72; font-style: italic;
+    }
 
-    /* LEGEND */
-    #legend {
-      background: #f5f6fa; padding: 50px 40px; text-align: center;
-    }
-    .legend-grid {
-      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 900px; margin: 0 auto;
-    }
-    .legend-item {
-      background: #fff; border-radius: 10px; padding: 18px 28px;
-      box-shadow: 0 3px 14px rgba(0,0,0,0.06); min-width: 180px;
-      border-top: 4px solid #1e90ff;
-    }
-    .legend-item .label { font-size: 0.8rem; color: #636e72; text-transform: uppercase; letter-spacing: 1px; }
-    .legend-item .value { font-size: 1rem; color: #0d1b2a; font-weight: 700; margin-top: 4px; }
-
-    /* ADMISSION CTA */
     .admission-cta {
       background: linear-gradient(135deg, #1e90ff, #00b894);
       color: #fff; text-align: center; padding: 60px 40px;
@@ -130,7 +113,6 @@
     }
     .btn-white:hover { background: transparent; color: #fff; transform: translateY(-2px); }
 
-    /* FOOTER */
     footer {
       background: #0d1b2a; color: #b2bec3;
       padding: 50px 40px 24px;
@@ -151,8 +133,9 @@
       nav { flex-direction: column; padding: 14px 20px; }
       .nav-links { flex-wrap: wrap; justify-content: center; }
       .page-header h1 { font-size: 2rem; }
-      section, #fees-tables, #legend { padding: 50px 20px; }
+      section, #fees-tables { padding: 50px 20px; }
     }
+
     /* ─── LOADER OVERLAY ─── */
     #loader-overlay {
       position: fixed; inset: 0;
@@ -162,17 +145,12 @@
       transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), visibility 0.8s cubic-bezier(0.4,0,0.2,1);
     }
     #loader-overlay.hidden { opacity: 0; visibility: hidden; }
-    #loader-overlay.finished {
-      animation: loader-exit 1s cubic-bezier(0.4,0,0.2,1) forwards;
-    }
+    #loader-overlay.finished { animation: loader-exit 1s cubic-bezier(0.4,0,0.2,1) forwards; }
     .star {
       position: absolute; border-radius: 50%; background: #fff;
       animation: twinkle var(--dur) ease-in-out infinite; animation-delay: var(--delay);
     }
-    @keyframes twinkle {
-      0%,100%{ opacity:0.2; transform:scale(0.8); }
-      50%{ opacity:1; transform:scale(1.3); }
-    }
+    @keyframes twinkle { 0%,100%{ opacity:0.2; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.3); } }
     #particle-canvas { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
     .loader-wrapper { position: relative; width: 380px; height: 380px; display: flex; align-items: center; justify-content: center; z-index: 3; }
     @media(max-width:480px){ .loader-wrapper{ width:300px; height:300px; } }
@@ -294,9 +272,9 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="courses.html" class="active">Courses</a></li>
+      <li><a href="courses.html">Courses</a></li>
       <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="fees.html">Fees</a></li>
+      <li><a href="fees.html" class="active">Fees</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <button class="hamburger" aria-label="Toggle navigation" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open')">
@@ -307,155 +285,67 @@
   <div class="page-header">
     <p class="breadcrumb"><a href="index.html">Home</a> / Fees Structure</p>
     <h1>Fees Structure</h1>
-    <p>Transparent and affordable fee structure for all classes from P.G. to XII</p>
+    <p>Transparent and affordable fee structure for all classes</p>
   </div>
 
   <!-- INFO BANNER -->
   <div id="fees-info">
     <h2>📋 Fees Structure — Academic Session 2025-26</h2>
-    <p>Applicable for P.G. to XII classes — H.M. &amp; E.M. streams. Please contact the office for any queries regarding fee payment.</p>
+    <p>Applicable for classes VI to XII — Hindi Medium &amp; English Medium. Please contact the office for any queries regarding fee payment.</p>
     <span class="session-badge">Session: 2025-26</span>
   </div>
 
- <!-- FEE TABLES -->
+  <!-- FEE TABLES -->
   <div id="fees-tables">
 
     <div class="section-title">
       <h2>Fee Details</h2>
-      <p>Monthly fee and one-time annual charges for each class</p>
+      <p>Monthly fee and annual fee for each class</p>
     </div>
 
-    <!-- P.G. Section -->
+    <!-- Hindi Medium Fees Structure -->
     <div class="fee-section">
-      <div class="fee-section-title"><span class="icon">🎒</span> P.G. Section</div>
+      <div class="fee-section-title"><span class="icon">📘</span> Hindi Medium Fees Structure</div>
       <div class="fee-table-wrap">
         <table>
-          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Monthly Fee</th><th>Annual Charges (Included)</th><th class="total-col">Total Amount</th></tr></thead>
+          <thead><tr><th>Sr. No.</th><th class="class-col">Class</th><th>Monthly Fees</th><th>Annual Fees</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td class="class-col">P.G. to V New (E.M.)</td><td>₹600</td><td>Admission + Registration: ₹3,650  •  T.B.D.: ₹250</td><td class="total-col">₹4,500</td></tr>
-            <tr><td>2</td><td class="class-col">P.G. to V Re (E.M.)</td><td>₹600</td><td>Admission + Registration: ₹2,250  •  T.B.D.: ₹150</td><td class="total-col">₹3,000</td></tr>
+            <tr><td>1</td><td class="class-col">VI to VIII</td><td>₹500.00</td><td>₹6,000.00</td></tr>
+            <tr><td>2</td><td class="class-col">IX</td><td>₹600.00</td><td>₹7,200.00</td></tr>
+            <tr><td>3</td><td class="class-col">X</td><td>₹600.00</td><td>₹7,200.00</td></tr>
+            <tr><td>4</td><td class="class-col">XI</td><td>₹800.00</td><td>₹9,600.00</td></tr>
+            <tr><td>5</td><td class="class-col">XII</td><td>₹800.00</td><td>₹9,600.00</td></tr>
           </tbody>
         </table>
       </div>
+      <p class="fee-note">Note - All charges included in Monthly Fees</p>
     </div>
 
-    <!-- Class VI to VIII -->
+    <!-- English Medium Fees Structure -->
     <div class="fee-section">
-      <div class="fee-section-title"><span class="icon">📘</span> Class VI to VIII</div>
+      <div class="fee-section-title"><span class="icon">📗</span> English Medium Fees Structure</div>
       <div class="fee-table-wrap">
         <table>
-          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Monthly Fee</th><th>Annual Charges (Included)</th><th class="total-col">Total Amount</th></tr></thead>
+          <thead><tr><th>Sr. No.</th><th class="class-col">Class</th><th>Monthly Fees</th><th>Annual Fees</th></tr></thead>
           <tbody>
-            <tr><td>3</td><td class="class-col">VI to VIII New (E.M.)</td><td>₹700</td><td>Admission + Registration: ₹4,550  •  T.B.D.: ₹250</td><td class="total-col">₹5,500</td></tr>
-            <tr><td>4</td><td class="class-col">VI to VIII Re (E.M.)</td><td>₹700</td><td>Admission + Registration: ₹2,650  •  T.B.D.: ₹150</td><td class="total-col">₹3,500</td></tr>
-            <tr><td>5</td><td class="class-col">VI to VIII New (H.M.)</td><td>₹500</td><td>Admission + Registration: ₹2,250  •  T.B.D.: ₹250</td><td class="total-col">₹3,000</td></tr>
-            <tr><td>6</td><td class="class-col">VI to VIII Re (H.M.)</td><td>₹500</td><td>Admission + Registration: ₹1,350  •  T.B.D.: ₹150</td><td class="total-col">₹2,000</td></tr>
+            <tr><td>1</td><td class="class-col">VI to VIII</td><td>₹700.00</td><td>₹8,400.00</td></tr>
+            <tr><td>2</td><td class="class-col">IX</td><td>₹800.00</td><td>₹9,600.00</td></tr>
+            <tr><td>3</td><td class="class-col">X</td><td>₹800.00</td><td>₹9,600.00</td></tr>
+            <tr><td>4</td><td class="class-col">XI</td><td>₹1,000.00</td><td>₹12,000.00</td></tr>
+            <tr><td>5</td><td class="class-col">XII</td><td>₹1,000.00</td><td>₹12,000.00</td></tr>
           </tbody>
         </table>
       </div>
+      <p class="fee-note">Note - All charges included in Monthly Fees</p>
     </div>
 
-    <!-- Class IX -->
-    <div class="fee-section">
-      <div class="fee-section-title"><span class="icon">📕</span> Class IX</div>
-      <div class="fee-table-wrap">
-        <table>
-          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Monthly Fee</th><th>Annual Charges (Included)</th><th class="total-col">Total Amount</th></tr></thead>
-          <tbody>
-            <tr><td>7</td><td class="class-col">IX New (E.M.)</td><td>₹800</td><td>Admission + Registration: ₹5,350  •  T.B.D.: ₹250</td><td class="total-col">₹6,400</td></tr>
-            <tr><td>8</td><td class="class-col">IX Re (E.M.)</td><td>₹800</td><td>Admission + Registration: ₹3,750</td><td class="total-col">₹4,550</td></tr>
-            <tr><td>9</td><td class="class-col">IX New (H.M.)</td><td>₹600</td><td>Admission + Registration: ₹3,000  •  T.B.D.: ₹250</td><td class="total-col">₹3,850</td></tr>
-            <tr><td>10</td><td class="class-col">IX Re (H.M.)</td><td>₹600</td><td>Admission + Registration: ₹2,400</td><td class="total-col">₹3,000</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Class X -->
-    <div class="fee-section">
-      <div class="fee-section-title"><span class="icon">📗</span> Class X</div>
-      <div class="fee-table-wrap">
-        <table>
-          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Monthly Fee</th><th>Annual Charges (Included)</th><th class="total-col">Total Amount</th></tr></thead>
-          <tbody>
-            <tr><td>11</td><td class="class-col">X Re (E.M.)</td><td>₹800</td><td>Admission + Registration: ₹4,200</td><td class="total-col">₹5,000</td></tr>
-            <tr><td>12</td><td class="class-col">X Re (H.M.)</td><td>₹600</td><td>Admission + Registration: ₹2,550</td><td class="total-col">₹3,150</td></tr>
-            <tr><td>19</td><td class="class-col">X New (H.M.)</td><td>₹600</td><td>Admission + Registration: ₹5,150  •  T.B.D.: ₹250</td><td class="total-col">₹6,000</td></tr>
-            <tr><td>20</td><td class="class-col">X New (E.M.)</td><td>₹800</td><td>Admission + Registration: ₹5,950  •  T.B.D.: ₹250</td><td class="total-col">₹7,000</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Class XI -->
-    <div class="fee-section">
-      <div class="fee-section-title"><span class="icon">📙</span> Class XI</div>
-      <div class="fee-table-wrap">
-        <table>
-          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Monthly Fee</th><th>Annual Charges (Included)</th><th class="total-col">Total Amount</th></tr></thead>
-          <tbody>
-            <tr><td>13</td><td class="class-col">XI New (E.M.)</td><td>₹1,000</td><td>Admission + Registration: ₹6,000  •  T.B.D.: ₹250</td><td class="total-col">₹7,250</td></tr>
-            <tr><td>14</td><td class="class-col">XI Re (E.M.)</td><td>₹1,000</td><td>Admission + Registration: ₹4,000</td><td class="total-col">₹5,000</td></tr>
-            <tr><td>15</td><td class="class-col">XI New (H.M.)</td><td>₹800</td><td>Admission + Registration: ₹3,450  •  T.B.D.: ₹250</td><td class="total-col">₹4,500</td></tr>
-            <tr><td>16</td><td class="class-col">XI Re (H.M.)</td><td>₹800</td><td>Admission + Registration: ₹2,500</td><td class="total-col">₹3,300</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Class XII -->
-    <div class="fee-section">
-      <div class="fee-section-title"><span class="icon">📔</span> Class XII</div>
-      <div class="fee-table-wrap">
-        <table>
-          <thead><tr><th>SL. No.</th><th class="class-col">Class</th><th>Monthly Fee</th><th>Annual Charges (Included)</th><th class="total-col">Total Amount</th></tr></thead>
-          <tbody>
-            <tr><td>17</td><td class="class-col">XII Re (E.M.)</td><td>₹1,000</td><td>Admission + Registration: ₹6,000</td><td class="total-col">₹7,000</td></tr>
-            <tr><td>18</td><td class="class-col">XII Re (H.M.)</td><td>₹800</td><td>Admission + Registration: ₹2,950</td><td class="total-col">₹3,750</td></tr>
-            <tr><td>21</td><td class="class-col">XII New (H.M.)</td><td>₹800</td><td>Admission + Registration: ₹5,450  •  T.B.D.: ₹250</td><td class="total-col">₹6,500</td></tr>
-            <tr><td>22</td><td class="class-col">XII New (E.M.)</td><td>₹1,000</td><td>Admission + Registration: ₹7,750  •  T.B.D.: ₹250</td><td class="total-col">₹9,000</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- LEGEND -->
-  <div id="legend">
-    <div class="section-title">
-      <h2>Fee Components</h2>
-      <p>Understanding what each charge covers</p>
-    </div>
-    <div class="legend-grid">
-      <div class="legend-item">
-        <div class="label">Adm. + Reg.</div>
-        <div class="value">Admission &amp; Registration<br>Fee (one-time)</div>
-      </div>
-      <div class="legend-item">
-        <div class="label">Monthly</div>
-        <div class="value">Monthly Tuition<br>Fee (per month)</div>
-      </div>
-      <div class="legend-item">
-        <div class="label">T.B.D.</div>
-        <div class="value">Term / Other<br>Charges</div>
-      </div>
-      <div class="legend-item">
-        <div class="label">E.M. / H.M.</div>
-        <div class="value">English Medium /<br>Hindi Medium</div>
-      </div>
-      <div class="legend-item">
-        <div class="label">New / Re</div>
-        <div class="value">New Admission /<br>Re-Admission</div>
-      </div>
-    </div>
   </div>
 
   <!-- ADMISSION CTA -->
   <section class="admission-cta">
     <h2>Admissions Open for 2025-26</h2>
     <p>Enroll your child today. Contact us for admission forms and more details.</p>
-    <a href="about.html" class="btn-white">Contact Us →</a>
+    <a href="about.html" class="btn-white">Contact Us &rarr;</a>
   </section>
 
   <!-- FOOTER -->
@@ -492,197 +382,159 @@
   </footer>
 
   <script>
-(function(){
-  'use strict';
-  var TOTAL_DURATION=3000;
-  var canvas=document.getElementById('trail-canvas');
-  var ctx=canvas.getContext('2d');
-  var particleCanvas=document.getElementById('particle-canvas');
-  var pCtx=particleCanvas.getContext('2d');
-  var loader=document.getElementById('loader-overlay');
-  var bird=document.getElementById('bird');
-  var progressBar=document.getElementById('progress-bar');
-  var startTime=Date.now();
-  var trailPoints=[];
-  var particles=[];
-  var ambientParticles=[];
-  var finished=false;
+  (function(){
+    'use strict';
+    var TOTAL_DURATION=3000;
+    var canvas=document.getElementById('trail-canvas');
+    var ctx=canvas.getContext('2d');
+    var particleCanvas=document.getElementById('particle-canvas');
+    var pCtx=particleCanvas.getContext('2d');
+    var loader=document.getElementById('loader-overlay');
+    var bird=document.getElementById('bird');
+    var progressBar=document.getElementById('progress-bar');
+    var startTime=Date.now();
+    var trailPoints=[];
+    var particles=[];
+    var finished=false;
 
-  function resizeCanvas(){
-    var w=loader.offsetWidth; var h=loader.offsetHeight;
-    particleCanvas.width=w; particleCanvas.height=h;
-    var dpr=window.devicePixelRatio||1;
-    var wrapper=document.querySelector('.loader-wrapper');
-    var rect=wrapper.getBoundingClientRect();
-    canvas.width=rect.width; canvas.height=rect.height;
-  }
-  resizeCanvas();
-  window.addEventListener('resize',resizeCanvas);
-
-  function getCenter(){
-    var wrapper=document.querySelector('.loader-wrapper');
-    var rect=wrapper.getBoundingClientRect();
-    return {x:rect.width/2, y:rect.height/2};
-  }
-
-  function getBirdPos(elapsed){
-    var c=getCenter();
-    var radius=Math.min(c.x,c.y)-18;
-    var angle=(elapsed/2200)*Math.PI*2;
-    return {x:c.x+Math.cos(angle)*radius, y:c.y+Math.sin(angle)*radius, angle:angle};
-  }
-
-  function spawnTrail(x,y){
-    trailPoints.push({x:x,y:y,life:1,decay:0.028});
-    if(trailPoints.length>60) trailPoints.shift();
-  }
-
-  function spawnParticles(x,y,count){
-    for(var i=0;i<count;i++){
-      var angle=Math.random()*Math.PI*2;
-      var speed=1+Math.random()*3.5;
-      particles.push({
-        x:x, y:y,
-        vx:Math.cos(angle)*speed,
-        vy:Math.sin(angle)*speed-1.5,
-        life:1,
-        decay:0.012+Math.random()*0.025,
-        size:1+Math.random()*3,
-        isExit:false,
-        r:Math.random()<0.5?30:0,
-        g:Math.random()<0.5?144:212,
-        b:Math.random()<0.5?255:255
-      });
-    }
-  }
-
-  function spawnExitParticles(){
-    var c=getCenter();
-    for(var i=0;i<80;i++){
-      var angle=Math.random()*Math.PI*2;
-      var speed=0.5+Math.random()*2;
-      particles.push({
-        x:c.x+(Math.random()-0.5)*160,
-        y:c.y+(Math.random()-0.5)*160,
-        vx:Math.cos(angle)*speed,
-        vy:Math.sin(angle)*speed-2.5,
-        life:1,
-        decay:0.006+Math.random()*0.015,
-        size:1.5+Math.random()*4,
-        isExit:true
-      });
-    }
-  }
-
-  function updateAndDrawTrail(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    for(var i=trailPoints.length-1;i>=0;i--){
-      var p=trailPoints[i];
-      p.life-=p.decay;
-      if(p.life<=0){trailPoints.splice(i,1);continue;}
-      var alpha=p.life*0.9;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.life*5,0,Math.PI*2);
-      ctx.fillStyle='rgba(0,200,255,'+alpha+')';
-      ctx.shadowBlur=15*p.life;
-      ctx.shadowColor='rgba(0,200,255,'+alpha+')';
-      ctx.fill();
-      ctx.shadowBlur=0;
-    }
-    if(trailPoints.length>1){
-      ctx.beginPath();
-      ctx.moveTo(trailPoints[0].x,trailPoints[0].y);
-      for(var j=1;j<trailPoints.length;j++){
-        var cp=trailPoints[j];
-        ctx.lineTo(cp.x,cp.y);
-      }
-      ctx.strokeStyle='rgba(0,180,255,0.35)';
-      ctx.lineWidth=2;
-      ctx.shadowBlur=8;
-      ctx.shadowColor='rgba(0,180,255,0.5)';
-      ctx.stroke();
-      ctx.shadowBlur=0;
-    }
-  }
-
-  function updateAndDrawParticles(){
-    pCtx.clearRect(0,0,particleCanvas.width,particleCanvas.height);
-    var offset=getBirdWorldOffset();
-    for(var i=particles.length-1;i>=0;i--){
-      var p=particles[i];
-      p.x+=p.vx;
-      p.y+=p.vy;
-      if(!p.isExit) p.vy+=0.03;
-      else p.vy-=0.02;
-      p.life-=p.decay;
-      if(p.life<=0){particles.splice(i,1);continue;}
-      var a=p.life;
-      pCtx.beginPath();
-      pCtx.arc(p.x+offset.x,p.y+offset.y,p.size,0,Math.PI*2);
-      pCtx.fillStyle='rgba('+p.r+','+p.g+','+p.b+','+a+')';
-      pCtx.shadowBlur=10*p.life;
-      pCtx.shadowColor='rgba(200,230,255,'+a*0.8+')';
-      pCtx.fill();
-      pCtx.shadowBlur=0;
-    }
-  }
-
-  function getBirdWorldOffset(){
-    var wRect=loader.getBoundingClientRect();
-    var bRect=bird.getBoundingClientRect();
-    return {x:bRect.left-wRect.left+13, y:bRect.top-wRect.top+13};
-  }
-
-  function animate(){
-    if(finished){
-      updateAndDrawParticles();
-      if(particles.length>0) requestAnimationFrame(animate);
-      return;
-    }
-    var elapsed=Date.now()-startTime;
-    var progress=Math.min(elapsed/TOTAL_DURATION,1);
-    progressBar.style.width=(progress*100)+'%';
-
-    if(progress<1){
-      var bp=getBirdPos(elapsed);
+    function resizeCanvas(){
+      var w=loader.offsetWidth; var h=loader.offsetHeight;
+      particleCanvas.width=w; particleCanvas.height=h;
       var wrapper=document.querySelector('.loader-wrapper');
-      var wRect=wrapper.getBoundingClientRect();
-      var bRect=bird.getBoundingClientRect();
-      var bx=bp.x-(bRect.width/2);
-      var by=bp.y-(bRect.height/2);
-      bird.style.position='absolute';
-      bird.style.left=bx+'px';
-      bird.style.top=by+'px';
-      spawnTrail(bp.x,bp.y);
-      if(Math.random()<0.35) spawnParticles(bp.x,bp.y,1);
-      updateAndDrawTrail();
-      updateAndDrawParticles();
-      requestAnimationFrame(animate);
-    } else {
-      finishLoading();
+      var rect=wrapper.getBoundingClientRect();
+      canvas.width=rect.width; canvas.height=rect.height;
     }
-  }
+    resizeCanvas();
+    window.addEventListener('resize',resizeCanvas);
 
-  function finishLoading(){
-    finished=true;
-    loader.classList.add('finished');
-    bird.classList.add('exit');
-    spawnExitParticles();
-    var orbitRings=document.querySelectorAll('.orbit-ring');
-    orbitRings.forEach(function(r){r.style.animationPlayState='paused';});
-    updateAndDrawParticles();
-    requestAnimationFrame(function loop(){
+    function getCenter(){
+      var wrapper=document.querySelector('.loader-wrapper');
+      var rect=wrapper.getBoundingClientRect();
+      return {x:rect.width/2, y:rect.height/2};
+    }
+
+    function getBirdPos(elapsed){
+      var c=getCenter();
+      var radius=Math.min(c.x,c.y)-18;
+      var angle=(elapsed/2200)*Math.PI*2;
+      return {x:c.x+Math.cos(angle)*radius, y:c.y+Math.sin(angle)*radius, angle:angle};
+    }
+
+    function spawnTrail(x,y){
+      trailPoints.push({x:x,y:y,life:1,decay:0.028});
+      if(trailPoints.length>60) trailPoints.shift();
+    }
+
+    function spawnParticles(x,y,count){
+      for(var i=0;i<count;i++){
+        var angle=Math.random()*Math.PI*2;
+        var speed=1+Math.random()*3.5;
+        particles.push({
+          x:x, y:y, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed-1.5,
+          life:1, decay:0.012+Math.random()*0.025, size:1+Math.random()*3,
+          r:Math.random()<0.5?30:0, g:Math.random()<0.5?144:212, b:Math.random()<0.5?255:255
+        });
+      }
+    }
+
+    function spawnExitParticles(){
+      var c=getCenter();
+      for(var i=0;i<80;i++){
+        var angle=Math.random()*Math.PI*2;
+        var speed=0.5+Math.random()*2;
+        particles.push({
+          x:c.x+(Math.random()-0.5)*160, y:c.y+(Math.random()-0.5)*160,
+          vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed-2.5,
+          life:1, decay:0.006+Math.random()*0.015, size:1.5+Math.random()*4
+        });
+      }
+    }
+
+    function updateAndDrawTrail(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(var i=trailPoints.length-1;i>=0;i--){
+        var p=trailPoints[i]; p.life-=p.decay;
+        if(p.life<=0){trailPoints.splice(i,1);continue;}
+        var alpha=p.life*0.9;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.life*5,0,Math.PI*2);
+        ctx.fillStyle='rgba(0,200,255,'+alpha+')';
+        ctx.shadowBlur=15*p.life; ctx.shadowColor='rgba(0,200,255,'+alpha+')';
+        ctx.fill(); ctx.shadowBlur=0;
+      }
+      if(trailPoints.length>1){
+        ctx.beginPath(); ctx.moveTo(trailPoints[0].x,trailPoints[0].y);
+        for(var j=1;j<trailPoints.length;j++){
+          var cp=trailPoints[j]; ctx.lineTo(cp.x,cp.y);
+        }
+        ctx.strokeStyle='rgba(0,180,255,0.35)'; ctx.lineWidth=2;
+        ctx.shadowBlur=8; ctx.shadowColor='rgba(0,180,255,0.5)';
+        ctx.stroke(); ctx.shadowBlur=0;
+      }
+    }
+
+    function updateAndDrawParticles(){
+      pCtx.clearRect(0,0,particleCanvas.width,particleCanvas.height);
+      var offset=getBirdWorldOffset();
+      for(var i=particles.length-1;i>=0;i--){
+        var p=particles[i]; p.x+=p.vx; p.y+=p.vy; p.life-=p.decay;
+        if(p.life<=0){particles.splice(i,1);continue;}
+        var a=p.life;
+        pCtx.beginPath(); pCtx.arc(p.x+offset.x,p.y+offset.y,p.size,0,Math.PI*2);
+        pCtx.fillStyle='rgba('+p.r+','+p.g+','+p.b+','+a+')';
+        pCtx.shadowBlur=10*p.life; pCtx.shadowColor='rgba(200,230,255,'+a*0.8+')';
+        pCtx.fill(); pCtx.shadowBlur=0;
+      }
+    }
+
+    function getBirdWorldOffset(){
+      var wRect=loader.getBoundingClientRect();
+      var bRect=bird.getBoundingClientRect();
+      return {x:bRect.left-wRect.left+13, y:bRect.top-wRect.top+13};
+    }
+
+    function animate(){
+      if(finished){
+        updateAndDrawParticles();
+        if(particles.length>0) requestAnimationFrame(animate);
+        return;
+      }
+      var elapsed=Date.now()-startTime;
+      var progress=Math.min(elapsed/TOTAL_DURATION,1);
+      progressBar.style.width=(progress*100)+'%';
+      if(progress<1){
+        var bp=getBirdPos(elapsed);
+        var wrapper=document.querySelector('.loader-wrapper');
+        var bRect=bird.getBoundingClientRect();
+        bird.style.position='absolute';
+        bird.style.left=(bp.x-bRect.width/2)+'px';
+        bird.style.top=(bp.y-bRect.height/2)+'px';
+        spawnTrail(bp.x,bp.y);
+        if(Math.random()<0.35) spawnParticles(bp.x,bp.y,1);
+        updateAndDrawTrail();
+        updateAndDrawParticles();
+        requestAnimationFrame(animate);
+      } else { finishLoading(); }
+    }
+
+    function finishLoading(){
+      finished=true;
+      loader.classList.add('finished');
+      bird.classList.add('exit');
+      spawnExitParticles();
+      document.querySelectorAll('.orbit-ring').forEach(function(r){r.style.animationPlayState='paused';});
       updateAndDrawParticles();
-      if(particles.length>0) requestAnimationFrame(loop);
-    });
-    setTimeout(function(){
-      loader.classList.add('hidden');
-      setTimeout(function(){ loader.style.display='none'; },800);
-    },1000);
-  }
+      requestAnimationFrame(function loop(){
+        updateAndDrawParticles();
+        if(particles.length>0) requestAnimationFrame(loop);
+      });
+      setTimeout(function(){
+        loader.classList.add('hidden');
+        setTimeout(function(){ loader.style.display='none'; },800);
+      },1000);
+    }
 
-  requestAnimationFrame(animate);
-})();
-</script>
+    requestAnimationFrame(animate);
+  })();
+  </script>
 </body>
 </html>

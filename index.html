@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modern Science School, Jogapur Pratapgarh</title>
+  <title>Modern Science College, Jogapur Pratapgarh</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -491,6 +491,106 @@
       font-size: 0.85rem; color: #636e72;
     }
 
+    /* ─── ACHIEVEMENT CARDS ─── */
+    .ach-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .ach-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+    }
+    .ach-card img {
+      width: 100%; height: 280px; object-fit: cover; display: block;
+    }
+    .ach-card-body {
+      padding: 16px; text-align: center; background: #f8f9fa;
+    }
+    .ach-card-title {
+      font-weight: 600; color: #0d1b2a; margin: 0; font-size: 1rem;
+    }
+
+    /* ─── LIGHTBOX ─── */
+    #lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(4px);
+    }
+    #lightbox-overlay.active {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    #lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      object-fit: contain;
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2.5rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10001;
+      line-height: 1;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+      background: none;
+      border: none;
+    }
+    #lightbox-close:hover {
+      opacity: 1;
+    }
+    #lightbox-prev, #lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10001;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      width: 55px; height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.2s, background 0.2s;
+    }
+    #lightbox-prev:hover, #lightbox-next:hover {
+      opacity: 1;
+      background: rgba(255,255,255,0.2);
+    }
+    #lightbox-prev { left: 15px; }
+    #lightbox-next { right: 15px; }
+    #lightbox-counter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      z-index: 10001;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       nav { padding: 12px 20px; }
@@ -584,7 +684,7 @@
   <nav>
     <div class="logo">
       <div class="logo-circle">MSC</div>
-      <span>Modern Science School</span>
+      <span>Modern Science College</span>
     </div>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
@@ -603,7 +703,7 @@
   <section class="hero">
     <div class="hero-content">
       <span class="hero-badge">Established · Jogapur Pratapgarh, Uttar Pradesh</span>
-      <h1>Modern Science School</h1>
+      <h1>Modern Science College</h1>
       <p>Empowering minds through quality education, innovation, and character building since inception. Nurturing future leaders at Bela Jogapur Pratapgarh.</p>
       <div class="hero-btns">
         <a href="courses.html" class="btn btn-primary">Explore Courses</a>
@@ -639,16 +739,16 @@
   <!-- ABOUT HIGHLIGHTS -->
   <section id="home-about">
     <div class="section-title">
-      <h2>Welcome to Our School</h2>
+      <h2>Welcome to Our College</h2>
       <p>A premier institution dedicated to academic excellence and holistic development</p>
     </div>
     <div class="about-grid">
       <div class="about-img">
-        <img src="../img/collegepic2.jpeg" alt="School Campus" />
+        <img src="../img/collegepic2.jpeg" alt="College Campus" />
       </div>
       <div class="about-text">
         <h3>Shaping Tomorrow's Leaders</h3>
-        <p>Modern Science School, Jogapur Pratapgarh stands as a beacon of quality education in the region. We are committed to nurturing young minds through a blend of academic rigor, practical exposure, and character development.</p>
+        <p>Modern Science College, Jogapur Pratapgarh stands as a beacon of quality education in the region. We are committed to nurturing young minds through a blend of academic rigor, practical exposure, and character development.</p>
         <ul class="check-list">
           <li>Experienced and dedicated faculty</li>
           <li>Modern infrastructure &amp; laboratories</li>
@@ -715,10 +815,38 @@
     </div>
   </section>
 
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" style="background:#fff;">
+    <div class="section-title">
+      <h2>Our Achievements</h2>
+      <p>Celebrating excellence and remarkable milestones of our students</p>
+    </div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:24px; max-width:1100px; margin:0 auto;">
+      <div class="ach-card" onclick="openLightbox(this)">
+        <img src="../img/achievement1.jpeg" alt="Academic Excellence" data-full="../img/achievement1.jpeg" />
+        <div class="ach-card-body">
+          <p class="ach-card-title">Academic Excellence - Top Performer</p>
+        </div>
+      </div>
+      <div class="ach-card" onclick="openLightbox(this)">
+        <img src="../img/achievement2.jpeg" alt="State Recognition" data-full="../img/achievement2.jpeg" />
+        <div class="ach-card-body">
+          <p class="ach-card-title">Honored by Former Chief Minister</p>
+        </div>
+      </div>
+      <div class="ach-card" onclick="openLightbox(this)">
+        <img src="../img/achievement3.jpeg" alt="Science Exhibition" data-full="../img/achievement3.jpeg" />
+        <div class="ach-card-body">
+          <p class="ach-card-title">Best Model at State-Level Science Exhibition</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA BANNER -->
   <section class="cta-banner">
     <h2>Ready to Begin Your Journey?</h2>
-    <p>Join Modern Science School and unlock your true potential. Admissions open now!</p>
+    <p>Join Modern Science College and unlock your true potential. Admissions open now!</p>
     <a href="about.html" class="btn btn-white">Get In Touch</a>
   </section>
 
@@ -726,7 +854,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <h3>Modern Science School</h3>
+        <h3>Modern Science College</h3>
         <p>A premier educational institution committed to nurturing knowledge, character, and leadership among students in Jogapur Pratapgarh, Uttar Pradesh.</p>
       </div>
       <div class="footer-col">
@@ -753,7 +881,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Modern Science School, Jogapur Pratapgarh. All Rights Reserved.</p>
+      <p>&copy; 2025 Modern Science College, Jogapur Pratapgarh. All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -1021,7 +1149,68 @@
     requestAnimationFrame(animate);
 
   })();
-  </script>
+
+  // ─── LIGHTBOX ───
+  var lightboxOverlay = document.getElementById('lightbox-overlay');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxCounter = document.getElementById('lightbox-counter');
+  var achCards = document.querySelectorAll('.ach-card');
+  var currentLightboxIndex = 0;
+  var lightboxImages = [];
+
+  function buildLightboxIndex() {
+    lightboxImages = [];
+    achCards.forEach(function(card) {
+      var img = card.querySelector('img');
+      if (img) lightboxImages.push(img.getAttribute('data-full') || img.src);
+    });
+  }
+
+  function openLightbox(cardEl) {
+    buildLightboxIndex();
+    currentLightboxIndex = Array.from(achCards).indexOf(cardEl);
+    if (currentLightboxIndex < 0) currentLightboxIndex = 0;
+    updateLightbox();
+    lightboxOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightboxOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    lightboxImg.src = lightboxImages[currentLightboxIndex];
+    lightboxCounter.textContent = (currentLightboxIndex + 1) + ' / ' + lightboxImages.length;
+  }
+
+  function navLightbox(dir) {
+    currentLightboxIndex = (currentLightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+    updateLightbox();
+  }
+
+  lightboxOverlay.addEventListener('click', function(e) {
+    if (e.target === lightboxOverlay) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lightboxOverlay.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  });
+
+</script>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox-overlay">
+    <button id="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button id="lightbox-prev" onclick="navLightbox(-1)">&#8249;</button>
+    <button id="lightbox-next" onclick="navLightbox(1)">&#8250;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view" />
+    <div id="lightbox-counter"></div>
+  </div>
 
 </body>
 </html>
