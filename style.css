@@ -1,0 +1,343 @@
+
+/* =========================================================
+   COMMON CSS – Modern Science College, Jogapur Pratapgarh
+   ========================================================= */
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f5f6fa;
+  color: #2d3436;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+
+/* ── NAVBAR ── */
+nav {
+  position: sticky; top: 0; z-index: 999;
+  background: #0d1b2a;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  color: #fff; font-size: 1.05rem; font-weight: 600;
+}
+.logo-circle {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, #1e90ff, #00b894);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: bold; color: #fff; flex-shrink: 0;
+}
+.nav-links { display: flex; gap: 6px; list-style: none; }
+.nav-links a {
+  display: block; padding: 10px 18px;
+  color: #dfe6e9; font-size: 0.9rem; font-weight: 500;
+  border-radius: 6px; transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active {
+  background: #1e90ff; color: #fff;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none;
+  padding: 6px; z-index: 1000;
+}
+.hamburger span {
+  display: block; width: 26px; height: 3px;
+  background: #dfe6e9; border-radius: 3px; transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  background: linear-gradient(135deg, rgba(13,27,42,0.85), rgba(30,144,255,0.65)),
+              url('../img/collegepic1.jpeg') center/cover no-repeat;
+  color: #fff; text-align: center;
+  padding: 100px 24px 80px;
+}
+.page-header h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 12px; }
+.page-header p { font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; }
+.breadcrumb { font-size: 0.88rem; opacity: 0.7; margin-bottom: 12px; }
+.breadcrumb a { color: #fff; text-decoration: underline; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: 88vh; min-height: 480px;
+  background: url('../img/collegepic1.jpeg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(13,27,42,0.82), rgba(30,144,255,0.55));
+}
+.hero-content {
+  position: relative; z-index: 1;
+  color: #fff; max-width: 800px; padding: 0 24px;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 6px 20px; border-radius: 50px;
+  font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-content h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+.hero-content p { font-size: 1.15rem; opacity: 0.9; margin-bottom: 32px; }
+.hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-block; padding: 13px 32px;
+  border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+  transition: all 0.25s; cursor: pointer;
+}
+.btn-primary { background: #1e90ff; color: #fff; border: 2px solid #1e90ff; }
+.btn-primary:hover { background: #0d6efd; border-color: #0d6efd; transform: translateY(-2px); }
+.btn-outline { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn-outline:hover { background: #fff; color: #0d1b2a; transform: translateY(-2px); }
+.btn-white {
+  display: inline-block; padding: 14px 36px; background: #fff; color: #1e90ff;
+  border: 2px solid #fff; border-radius: 50px;
+  font-weight: 600; font-size: 0.95rem; transition: all 0.25s;
+}
+.btn-white:hover { background: transparent; color: #fff; transform: translateY(-2px); }
+
+/* ── SECTION TITLE ── */
+section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 48px; }
+.section-title h2 {
+  font-size: 2rem; color: #0d1b2a;
+  display: inline-block; position: relative;
+}
+.section-title h2::after {
+  content: ''; display: block; width: 55px; height: 4px;
+  background: #1e90ff; border-radius: 2px; margin: 10px auto 0;
+}
+.section-title p { color: #636e72; margin-top: 10px; }
+
+/* ── FOOTER ── */
+footer {
+  background: #0d1b2a; color: #b2bec3;
+  padding: 50px 40px 24px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px; max-width: 1100px; margin: 0 auto 40px;
+}
+.footer-col h3 { color: #fff; margin-bottom: 16px; font-size: 1rem; }
+.footer-col p, .footer-col a { color: #b2bec3; font-size: 0.9rem; line-height: 2; display: block; }
+.footer-col a:hover { color: #1e90ff; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center; padding-top: 20px; font-size: 0.85rem; color: #636e72;
+}
+
+/* ── CTA BANNER ── */
+.cta-banner {
+  background: linear-gradient(135deg, #1e90ff, #00b894);
+  color: #fff; text-align: center; padding: 60px 40px;
+}
+.cta-banner h2 { font-size: 2rem; margin-bottom: 14px; }
+.cta-banner p { font-size: 1.05rem; opacity: 0.92; margin-bottom: 28px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { flex-direction: column; padding: 12px 20px; }
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none; flex-direction: column; width: 100%;
+    gap: 2px; background: #0d1b2a;
+    position: absolute; top: 100%; left: 0;
+    padding: 8px 16px 12px;
+    border-top: 1px solid #1a2d45;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { border-radius: 6px; padding: 12px 14px; }
+  .page-header h1 { font-size: 2rem; }
+  section { padding: 50px 20px; }
+}
+
+
+/* =========================================================
+   LOADER — BIRD-ORBIT VARIANT (index, courses, gallery)
+   ========================================================= */
+#loader-overlay {
+  position: fixed; inset: 0;
+  background: radial-gradient(ellipse at center, #0a1628 0%, #050d1a 70%, #020810 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), visibility 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+#loader-overlay.hidden { opacity: 0; visibility: hidden; }
+#loader-overlay.finished { animation: loader-exit 1s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+.star {
+  position: absolute; width: 2px; height: 2px; background: #fff; border-radius: 50%;
+  animation: dot-twinkle var(--dur) ease-in-out infinite; animation-delay: var(--delay); opacity: 0.3;
+}
+@keyframes dot-twinkle { 0%,100%{ opacity:0.3; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.2); } }
+
+#particle-canvas { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+
+.loader-wrapper {
+  position: relative; width: 260px; height: 260px;
+  display: flex; align-items: center; justify-content: center;
+}
+.loader-ring-outer {
+  position: absolute; width: 220px; height: 220px; border-radius: 50%;
+  border: 2px solid rgba(30,144,255,0.15);
+  box-shadow: 0 0 30px rgba(30,144,255,0.08), inset 0 0 30px rgba(30,144,255,0.05);
+}
+.loader-ring {
+  position: absolute; width: 200px; height: 200px; border-radius: 50%;
+  border: 2.5px solid transparent;
+  border-top-color: #1e90ff; border-right-color: rgba(0,184,148,0.6);
+  animation: ring-spin 2s cubic-bezier(0.5,0,0.5,1) infinite;
+  filter: drop-shadow(0 0 8px rgba(30,144,255,0.5));
+}
+.loader-ring-inner {
+  position: absolute; width: 170px; height: 170px; border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-bottom-color: rgba(0,184,148,0.4); border-left-color: rgba(30,144,255,0.3);
+  animation: ring-spin 3s cubic-bezier(0.5,0,0.5,1) infinite reverse;
+  filter: drop-shadow(0 0 6px rgba(0,184,148,0.3));
+}
+.loader-ring-dot {
+  position: absolute; width: 8px; height: 8px; border-radius: 50%;
+  background: #1e90ff; top: -4px; left: 50%; transform: translateX(-50%);
+  box-shadow: 0 0 12px #1e90ff, 0 0 24px rgba(30,144,255,0.4);
+}
+.loader-center {
+  position: relative; z-index: 2;
+  text-align: center; display: flex; flex-direction: column; align-items: center;
+}
+.loader-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, #1e90ff, #00b894);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; color: #fff; margin-bottom: 14px;
+  box-shadow: 0 0 40px rgba(30,144,255,0.35), 0 0 80px rgba(0,184,148,0.15);
+  animation: icon-pulse 2s ease-in-out infinite;
+}
+.loader-college-name {
+  color: #fff; font-size: 1rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(30,144,255,0.5); white-space: nowrap;
+}
+.loader-college-sub {
+  color: #74b9ff; font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; opacity: 0.8;
+}
+.bird-orbit-container {
+  position: absolute; width: 260px; height: 260px;
+  top: 0; left: 0; animation: none;
+}
+.bird {
+  position: absolute; width: 22px; height: 22px;
+  top: 50%; left: 50%;
+  margin-top: -11px; margin-left: -11px;
+  animation: bird-orbit 2.2s linear infinite;
+}
+.bird svg {
+  width: 22px; height: 22px;
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px rgba(30,144,255,0.7));
+  animation: wing-flap 0.35s ease-in-out infinite alternate;
+}
+#trail-canvas {
+  position: absolute; top: -60px; left: -60px;
+  width: 380px; height: 380px;
+  pointer-events: none; z-index: 1;
+}
+#particle-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 10;
+}
+.loader-tagline {
+  margin-top: 36px; color: #636e72; font-size: 0.78rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  animation: tagline-pulse 2s ease-in-out infinite;
+}
+.loader-progress-wrap {
+  margin-top: 20px; width: 160px; height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px; overflow: hidden;
+}
+.loader-progress-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #1e90ff, #00b894);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(30,144,255,0.5);
+  transition: width 0.1s linear;
+}
+
+@keyframes ring-spin { to { transform: rotate(360deg); } }
+@keyframes icon-pulse { 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.08); } }
+@keyframes wing-flap { 0%{ transform:scaleY(1) rotate(0deg); } 100%{ transform:scaleY(0.7) rotate(-5deg); } }
+@keyframes tagline-pulse { 0%,100%{ opacity:0.5; } 50%{ opacity:1; } }
+@keyframes bird-fly-away {
+  0%{ transform:translate(0,0) rotate(0deg); opacity:1; }
+  30%{ transform:translate(0,-80px) rotate(-5deg); opacity:1; }
+  70%{ opacity:0.7; }
+  100%{ transform:translate(0,-260px) rotate(-15deg); opacity:0; }
+}
+@keyframes loader-exit {
+  0%{ transform:scale(1); opacity:1; filter:blur(0px); }
+  100%{ transform:scale(0.6); opacity:0; filter:blur(12px); }
+}
+@keyframes fade-out-all { to { opacity: 0; } }
+@keyframes bird-orbit { to { transform: rotate(360deg); } }
+
+@media (max-width: 480px) {
+  .loader-wrapper { width: 200px; height: 200px; }
+  .loader-ring-outer { width: 170px; height: 170px; }
+  .loader-ring { width: 155px; height: 155px; }
+  .loader-ring-inner { width: 130px; height: 130px; }
+  .loader-college-name { font-size: 0.85rem; letter-spacing: 1px; }
+  .loader-college-sub { font-size: 0.65rem; }
+  .loader-icon { width: 50px; height: 50px; font-size: 1.4rem; }
+  #trail-canvas { top: -40px; left: -40px; width: 280px; height: 280px; }
+  .bird-orbit-container { width: 200px; height: 200px; }
+}
+
+
+/* =========================================================
+   LOADER — ORBIT-RING VARIANT (about, contact, fees)
+   ========================================================= */
+#loader-overlay .loader-wrapper-orbit {
+  position: relative; width: 380px; height: 380px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3;
+}
+#loader-overlay .progress-bar-wrap {
+  position: relative; margin-top: 34px;
+  width: 220px; height: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 2px; overflow: hidden; z-index: 5;
+}
+#loader-overlay .progress-bar-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #1e90ff, #00b894, #1e90ff);
+  border-radius: 2px; transition: width 0.1s linear;
+}
+#loader-overlay .tagline {
+  margin-top: 16px;
+  color: #636e72; font-size: 0.75rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  animation: tagline-pulse 1.8s ease-in-out infinite; z-index: 5;
+}
