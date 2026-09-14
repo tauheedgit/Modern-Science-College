@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fees Structure — Modern Science  College, Jogapur Pratapgarh</title>
+  <title>Fees Structure - Modern Science  College, Jogapur Pratapgarh</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #f5f6fa; color: #2d3436; line-height: 1.7;
+      background: #fffdf7; color: #5c0000; line-height: 1.7;
     }
 
     nav {
       position: sticky; top: 0; z-index: 999;
-      background: #0d1b2a;
+      background: #5c0000;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -23,24 +23,43 @@
       display: flex; align-items: center; gap: 12px;
       color: #fff; font-size: 1.05rem; font-weight: 600;
     }
-    .logo-circle {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, #1e90ff, #00b894);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; font-weight: bold; color: #fff;
+    .logo-img {
+      height: 44px; width: auto; border-radius: 50%; flex-shrink: 0;
     }
-    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links { display: flex; gap: 6px; list-style: none; margin-left: auto; }
     .nav-links a {
       display: block; padding: 10px 18px;
-      color: #dfe6e9; font-size: 0.9rem; font-weight: 500;
+      color: #f0e0a0; font-size: 0.9rem; font-weight: 500;
       border-radius: 6px; transition: all 0.2s;
     }
     .nav-links a:hover, .nav-links a.active {
-      background: #1e90ff; color: #fff;
+      background: #c8960c; color: #fff;
     }
 
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      z-index: 1000;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 3px;
+      background: #f0e0a0;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
     .page-header {
-      background: linear-gradient(135deg, rgba(13,27,42,0.85), rgba(30,144,255,0.65)),
+      background: linear-gradient(135deg, rgba(92,0,0,0.88), rgba(200,150,12,0.5)),
                   url('../img/collegepic1.jpeg') center/cover no-repeat;
       color: #fff; text-align: center;
       padding: 100px 24px 80px;
@@ -53,33 +72,33 @@
     section { padding: 72px 40px; max-width: 1000px; margin: 0 auto; }
     .section-title { text-align: center; margin-bottom: 40px; }
     .section-title h2 {
-      font-size: 1.8rem; color: #0d1b2a;
+      font-size: 1.8rem; color: #5c0000;
       display: inline-block; position: relative;
     }
     .section-title h2::after {
       content: ''; display: block; width: 55px; height: 4px;
-      background: #1e90ff; border-radius: 2px; margin: 10px auto 0;
+      background: #c8960c; border-radius: 2px; margin: 10px auto 0;
     }
-    .section-title p { color: #636e72; margin-top: 10px; }
+    .section-title p { color: #5c0000; margin-top: 10px; }
 
     #fees-info {
-      background: linear-gradient(135deg, #0d1b2a, #1a2d45);
+      background: linear-gradient(135deg, #5c0000, #7b0000);
       color: #fff; padding: 50px 40px; text-align: center;
     }
     #fees-info h2 { color: #fff; font-size: 1.5rem; margin-bottom: 10px; }
-    #fees-info p { color: #b2bec3; font-size: 1rem; max-width: 650px; margin: 0 auto; }
+    #fees-info p { color: #c8960c; font-size: 1rem; max-width: 650px; margin: 0 auto; }
     .session-badge {
       display: inline-block; margin-top: 16px;
-      background: rgba(30,144,255,0.2); border: 1px solid rgba(30,144,255,0.4);
+      background: rgba(200,150,12,0.15); border: 1px solid rgba(200,150,12,0.35);
       padding: 8px 24px; border-radius: 50px; font-size: 0.9rem;
-      color: #74b9ff;
+      color: #e0c068;
     }
 
     #fees-tables { background: #fff; padding: 72px 40px; }
     .fee-section { margin-bottom: 48px; }
     .fee-section:last-child { margin-bottom: 0; }
     .fee-section-title {
-      background: linear-gradient(135deg, #1e90ff, #0d8bf0);
+      background: linear-gradient(135deg, #7b0000, #5c0000);
       color: #fff; padding: 12px 20px; border-radius: 10px;
       margin-bottom: 16px; font-size: 1.05rem; font-weight: 700;
       display: flex; align-items: center; gap: 10px;
@@ -88,33 +107,33 @@
     .fee-table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
     table { width: 100%; border-collapse: collapse; min-width: 600px; }
     th, td {
-      border: 1px solid #d5dbe6; padding: 12px 16px; text-align: center; font-size: 0.92rem;
+      border: 1px solid #e8ddd0; padding: 12px 16px; text-align: center; font-size: 0.92rem;
     }
     thead th {
-      background: #0d1b2a; color: #fff; font-weight: 600; white-space: nowrap;
+      background: #5c0000; color: #fff; font-weight: 600; white-space: nowrap;
     }
-    tbody tr:nth-child(even) { background: #f4f7fb; }
-    tbody tr:hover { background: #e8f0fe; }
+    tbody tr:nth-child(even) { background: #fffdf7; }
+    tbody tr:hover { background: #fffdf7; }
     .class-col { text-align: left; font-weight: 500; }
     .fee-note {
-      margin-top: 10px; font-size: 0.85rem; color: #636e72; font-style: italic;
+      margin-top: 10px; font-size: 0.85rem; color: rgba(255,248,225,0.65); font-style: italic;
     }
 
     .admission-cta {
-      background: linear-gradient(135deg, #1e90ff, #00b894);
+      background: linear-gradient(135deg, #7b0000, #5c0000);
       color: #fff; text-align: center; padding: 60px 40px;
     }
     .admission-cta h2 { font-size: 2rem; margin-bottom: 14px; }
     .admission-cta p { font-size: 1.05rem; opacity: 0.92; margin-bottom: 28px; }
     .btn-white {
-      display: inline-block; padding: 14px 36px; background: #fff; color: #1e90ff;
+      display: inline-block; padding: 14px 36px; background: #fff; color: #c8960c;
       border: 2px solid #fff; border-radius: 50px;
       font-weight: 600; font-size: 0.95rem; transition: all 0.25s;
     }
     .btn-white:hover { background: transparent; color: #fff; transform: translateY(-2px); }
 
     footer {
-      background: #0d1b2a; color: #b2bec3;
+      background: #5c0000; color: #c8960c;
       padding: 50px 40px 24px;
     }
     .footer-grid {
@@ -122,151 +141,40 @@
       gap: 40px; max-width: 1100px; margin: 0 auto 40px;
     }
     .footer-col h3 { color: #fff; margin-bottom: 16px; font-size: 1rem; }
-    .footer-col p, .footer-col a { color: #b2bec3; font-size: 0.9rem; line-height: 2; display: block; }
-    .footer-col a:hover { color: #1e90ff; }
+    .footer-col p, .footer-col a { color: white; font-size: 0.9rem; line-height: 2; display: block; }
+    .footer-col a:hover { color: #c8960c; }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.08);
-      text-align: center; padding-top: 20px; font-size: 0.85rem; color: #636e72;
+      text-align: center; padding-top: 20px; font-size: 0.85rem; color: rgba(255,248,225,0.65);
     }
 
     @media (max-width: 768px) {
-      nav { flex-direction: column; padding: 14px 20px; }
-      .nav-links { flex-wrap: wrap; justify-content: center; }
+      nav { padding: 14px 20px; position: relative; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 2px;
+        background: #5c0000;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 8px 16px 12px;
+        border-top: 1px solid #e0c068;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { border-radius: 6px; padding: 12px 14px; }
       .page-header h1 { font-size: 2rem; }
       section, #fees-tables { padding: 50px 20px; }
-    }
-
-    /* ─── LOADER OVERLAY ─── */
-    #loader-overlay {
-      position: fixed; inset: 0;
-      background: radial-gradient(ellipse at center, #0a1628 0%, #050d1a 70%, #020810 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      z-index: 99999;
-      transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), visibility 0.8s cubic-bezier(0.4,0,0.2,1);
-    }
-    #loader-overlay.hidden { opacity: 0; visibility: hidden; }
-    #loader-overlay.finished { animation: loader-exit 1s cubic-bezier(0.4,0,0.2,1) forwards; }
-    .star {
-      position: absolute; border-radius: 50%; background: #fff;
-      animation: twinkle var(--dur) ease-in-out infinite; animation-delay: var(--delay);
-    }
-    @keyframes twinkle { 0%,100%{ opacity:0.2; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.3); } }
-    #particle-canvas { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-    .loader-wrapper { position: relative; width: 380px; height: 380px; display: flex; align-items: center; justify-content: center; z-index: 3; }
-    @media(max-width:480px){ .loader-wrapper{ width:300px; height:300px; } }
-    #trail-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
-    .orbit-ring {
-      position: absolute; border-radius: 50%; border: 2px solid rgba(30,144,255,0.2);
-      animation: ring-spin 2.5s linear infinite;
-    }
-    .orbit-ring:nth-child(2) { width: 260px; height: 260px; border-color: rgba(0,184,148,0.25); animation-duration: 3.5s; animation-direction: reverse; }
-    .orbit-ring:nth-child(3) { width: 330px; height: 330px; border-color: rgba(100,200,255,0.15); animation-duration: 4.5s; }
-    @media(max-width:480px){ .orbit-ring:nth-child(2){width:210px;height:210px;} .orbit-ring:nth-child(3){width:265px;height:265px;} }
-    .orbit-ring::after {
-      content:''; position:absolute; width:8px; height:8px; border-radius:50%;
-      background:#1e90ff; top:-4px; left:50%; transform:translateX(-50%);
-      box-shadow: 0 0 12px #1e90ff, 0 0 24px rgba(30,144,255,0.5);
-    }
-    @keyframes ring-spin { to { transform: rotate(360deg); } }
-    .center-content {
-      position: relative; z-index: 5; text-align: center; display: flex;
-      flex-direction: column; align-items: center; gap: 8px;
-    }
-    .center-icon {
-      font-size: 2.4rem; animation: icon-pulse 1.5s ease-in-out infinite;
-      filter: drop-shadow(0 0 14px rgba(30,144,255,0.7));
-    }
-    @keyframes icon-pulse {
-      0%,100%{ transform:scale(1); filter:drop-shadow(0 0 14px rgba(30,144,255,0.7)); }
-      50%{ transform:scale(1.15); filter:drop-shadow(0 0 22px rgba(30,144,255,0.9)); }
-    }
-    .center-title {
-      font-family:'Segoe UI',Tahoma,sans-serif; font-size:1.05rem; font-weight:700;
-      color:#fff; letter-spacing:2px; text-transform:uppercase;
-      text-shadow: 0 0 20px rgba(30,144,255,0.8), 0 0 40px rgba(30,144,255,0.4);
-    }
-    .center-sub {
-      font-family:'Segoe UI',Tahoma,sans-serif; font-size:0.75rem; font-weight:500;
-      color:#1e90ff; letter-spacing:3px; text-transform:uppercase; opacity:0.85;
-    }
-    .bird-container { position: absolute; width: 26px; height: 26px; z-index: 10; pointer-events: none; }
-    .bird-svg { width: 100%; height: 100%; animation: wing-flap 0.35s ease-in-out infinite; filter: drop-shadow(0 0 8px rgba(0,200,255,0.9)) drop-shadow(0 0 18px rgba(0,200,255,0.5)); }
-    .bird-container.exit .bird-svg { animation: bird-fly-away 1.2s cubic-bezier(0.4,0,0.2,1) forwards; }
-    @keyframes wing-flap { 0%,100%{ transform:scaleY(1); } 50%{ transform:scaleY(0.55); } }
-    @keyframes bird-fly-away {
-      0%{ transform:translateY(0) scale(1); opacity:1; }
-      100%{ transform:translateY(-220px) scale(0.25); opacity:0; }
-    }
-    .progress-bar-wrap {
-      position: absolute; bottom: 90px; left: 50%; transform: translateX(-50%);
-      width: 200px; height: 3px; background: rgba(30,144,255,0.15); border-radius: 3px; overflow: hidden; z-index: 5;
-    }
-    .progress-bar-fill {
-      height: 100%; width: 0%; background: linear-gradient(90deg, #1e90ff, #00b894, #1e90ff);
-      border-radius: 3px; transition: width 0.1s linear;
-    }
-    .tagline {
-      position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%);
-      font-family:'Segoe UI',Tahoma,sans-serif; font-size: 0.75rem; color: #636e72;
-      letter-spacing: 2px; white-space: nowrap; animation: tagline-pulse 1.8s ease-in-out infinite; z-index: 5;
-    }
-    @keyframes tagline-pulse { 0%,100%{ opacity:0.5; } 50%{ opacity:1; } }
-    @keyframes loader-exit {
-      0%{ transform:scale(1); filter:blur(0); opacity:1; }
-      60%{ transform:scale(1.06); filter:blur(2px); opacity:0.6; }
-      100%{ transform:scale(0.88); filter:blur(10px); opacity:0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- LOADER -->
-  <div id="loader-overlay">
-    <div class="star" style="width:3px;height:3px;top:8%;left:12%;--dur:2.8s;--delay:0s;"></div>
-    <div class="star" style="width:2px;height:2px;top:15%;left:78%;--dur:3.4s;--delay:0.5s;"></div>
-    <div class="star" style="width:3px;height:3px;top:65%;left:10%;--dur:2.3s;--delay:1s;"></div>
-    <div class="star" style="width:2px;height:2px;top:72%;left:85%;--dur:3.1s;--delay:1.5s;"></div>
-    <div class="star" style="width:3px;height:3px;top:40%;left:5%;--dur:2.6s;--delay:0.3s;"></div>
-    <div class="star" style="width:2px;height:2px;top:28%;left:92%;--dur:3.7s;--delay:0.8s;"></div>
-    <div class="star" style="width:3px;height:3px;top:88%;left:45%;--dur:2.1s;--delay:1.2s;"></div>
-    <div class="star" style="width:2px;height:2px;top:5%;left:50%;--dur:3.3s;--delay:0.6s;"></div>
-    <div class="star" style="width:3px;height:3px;top:55%;left:88%;--dur:2.9s;--delay:1.8s;"></div>
-    <div class="star" style="width:2px;height:2px;top:78%;left:35%;--dur:3.6s;--delay:2.1s;"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="loader-wrapper">
-      <canvas id="trail-canvas" width="380" height="380"></canvas>
-      <div class="orbit-ring" style="width:190px;height:190px;top:50%;left:50%;margin-top:-95px;margin-left:-95px;"></div>
-      <div class="orbit-ring" style="width:260px;height:260px;top:50%;left:50%;margin-top:-130px;margin-left:-130px;"></div>
-      <div class="orbit-ring" style="width:330px;height:330px;top:50%;left:50%;margin-top:-165px;margin-left:-165px;"></div>
-      <div class="bird-container" id="bird">
-        <svg class="bird-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs><radialGradient id="bg1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#1e90ff"/></radialGradient></defs>
-          <ellipse cx="20" cy="19" rx="11" ry="8" fill="url(#bg1)" opacity="0.95"/>
-          <circle cx="27" cy="16" r="6.5" fill="url(#bg1)" opacity="0.95"/>
-          <polygon points="33,16 40,13 33,19" fill="#fff"/>
-          <circle cx="29" cy="14.5" r="1.6" fill="#fff"/>
-          <circle cx="29" cy="14.5" r="0.8" fill="#050d1a"/>
-          <ellipse cx="14" cy="17" rx="7" ry="2.8" fill="rgba(0,212,255,0.5)" transform="rotate(-8 14 17)">
-            <animateTransform attributeName="transform" type="scale" values="1,1;0.4,1;1,1" dur="0.35s" repeatCount="indefinite" additive="sum"/>
-          </ellipse>
-          <ellipse cx="14" cy="19.5" rx="6" ry="2.2" fill="rgba(30,144,255,0.45)" transform="rotate(6 14 19.5)">
-            <animateTransform attributeName="transform" type="scale" values="1,1;0.35,1;1,1" dur="0.35s" repeatCount="indefinite" additive="sum"/>
-          </ellipse>
-        </svg>
-      </div>
-      <div class="center-content">
-        <div class="center-icon">🎓</div>
-        <div class="center-title">Modern Science College</div>
-        <div class="center-sub">Pratapgarh</div>
-      </div>
-    </div>
-    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar"></div></div>
-    <div class="tagline">Nurturing Minds · Shaping Futures</div>
-  </div>
-
- <nav>
+  <nav>
     <div class="logo">
-      <div class="logo-circle">MSC</div>
+      <img class="logo-img" src="../img/pnglogo.png" alt="Modern Science College Logo" />
       <span>Modern Science  College</span>
     </div>
     <ul class="nav-links">
@@ -290,14 +198,13 @@
 
   <!-- INFO BANNER -->
   <div id="fees-info">
-    <h2>📋 Fees Structure — Academic Session  </h2>
-    <p>Applicable for classes VI to XII — Hindi Medium &amp; English Medium. Please contact the office for any queries regarding fee payment.</p>
-    <span class="session-badge">Session:  </span>
+    <h2>📋 Fees Structure - Academic Session 2025-26</h2>
+    <p>Applicable for classes VI to XII - Hindi Medium &amp; English Medium. Please contact the office for any queries regarding fee payment.</p>
+    <span class="session-badge">Session: 2025-26</span>
   </div>
 
   <!-- FEE TABLES -->
   <div id="fees-tables">
-
     <div class="section-title">
       <h2>Fee Details</h2>
       <p>Monthly fee and annual fee for each class</p>
@@ -338,21 +245,20 @@
       </div>
       <p class="fee-note">Note - All charges included in Monthly Fees</p>
     </div>
-
   </div>
 
   <!-- ADMISSION CTA -->
   <section class="admission-cta">
     <h2>Admissions Open</h2>
     <p>Enroll your child today. Contact us for admission forms and more details.</p>
-    <a href="about.html" class="btn-white">Contact Us &rarr;</a>
+    <a href="about.html" class="btn-white">Contact Us →</a>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <h3>Modern Science  College</h3>
+        <img src="../img/pnglogo.png" alt="Modern Science College Logo" style="height:60px; width:auto; margin-bottom:14px; display:block;" />
         <p>Recognized by the Government of Uttar Pradesh. Located at Bela Jogapur Pratapgarh.</p>
       </div>
       <div class="footer-col">
@@ -381,160 +287,5 @@
     </div>
   </footer>
 
-  <script>
-  (function(){
-    'use strict';
-    var TOTAL_DURATION=3000;
-    var canvas=document.getElementById('trail-canvas');
-    var ctx=canvas.getContext('2d');
-    var particleCanvas=document.getElementById('particle-canvas');
-    var pCtx=particleCanvas.getContext('2d');
-    var loader=document.getElementById('loader-overlay');
-    var bird=document.getElementById('bird');
-    var progressBar=document.getElementById('progress-bar');
-    var startTime=Date.now();
-    var trailPoints=[];
-    var particles=[];
-    var finished=false;
-
-    function resizeCanvas(){
-      var w=loader.offsetWidth; var h=loader.offsetHeight;
-      particleCanvas.width=w; particleCanvas.height=h;
-      var wrapper=document.querySelector('.loader-wrapper');
-      var rect=wrapper.getBoundingClientRect();
-      canvas.width=rect.width; canvas.height=rect.height;
-    }
-    resizeCanvas();
-    window.addEventListener('resize',resizeCanvas);
-
-    function getCenter(){
-      var wrapper=document.querySelector('.loader-wrapper');
-      var rect=wrapper.getBoundingClientRect();
-      return {x:rect.width/2, y:rect.height/2};
-    }
-
-    function getBirdPos(elapsed){
-      var c=getCenter();
-      var radius=Math.min(c.x,c.y)-18;
-      var angle=(elapsed/2200)*Math.PI*2;
-      return {x:c.x+Math.cos(angle)*radius, y:c.y+Math.sin(angle)*radius, angle:angle};
-    }
-
-    function spawnTrail(x,y){
-      trailPoints.push({x:x,y:y,life:1,decay:0.028});
-      if(trailPoints.length>60) trailPoints.shift();
-    }
-
-    function spawnParticles(x,y,count){
-      for(var i=0;i<count;i++){
-        var angle=Math.random()*Math.PI*2;
-        var speed=1+Math.random()*3.5;
-        particles.push({
-          x:x, y:y, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed-1.5,
-          life:1, decay:0.012+Math.random()*0.025, size:1+Math.random()*3,
-          r:Math.random()<0.5?30:0, g:Math.random()<0.5?144:212, b:Math.random()<0.5?255:255
-        });
-      }
-    }
-
-    function spawnExitParticles(){
-      var c=getCenter();
-      for(var i=0;i<80;i++){
-        var angle=Math.random()*Math.PI*2;
-        var speed=0.5+Math.random()*2;
-        particles.push({
-          x:c.x+(Math.random()-0.5)*160, y:c.y+(Math.random()-0.5)*160,
-          vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed-2.5,
-          life:1, decay:0.006+Math.random()*0.015, size:1.5+Math.random()*4
-        });
-      }
-    }
-
-    function updateAndDrawTrail(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      for(var i=trailPoints.length-1;i>=0;i--){
-        var p=trailPoints[i]; p.life-=p.decay;
-        if(p.life<=0){trailPoints.splice(i,1);continue;}
-        var alpha=p.life*0.9;
-        ctx.beginPath(); ctx.arc(p.x,p.y,p.life*5,0,Math.PI*2);
-        ctx.fillStyle='rgba(0,200,255,'+alpha+')';
-        ctx.shadowBlur=15*p.life; ctx.shadowColor='rgba(0,200,255,'+alpha+')';
-        ctx.fill(); ctx.shadowBlur=0;
-      }
-      if(trailPoints.length>1){
-        ctx.beginPath(); ctx.moveTo(trailPoints[0].x,trailPoints[0].y);
-        for(var j=1;j<trailPoints.length;j++){
-          var cp=trailPoints[j]; ctx.lineTo(cp.x,cp.y);
-        }
-        ctx.strokeStyle='rgba(0,180,255,0.35)'; ctx.lineWidth=2;
-        ctx.shadowBlur=8; ctx.shadowColor='rgba(0,180,255,0.5)';
-        ctx.stroke(); ctx.shadowBlur=0;
-      }
-    }
-
-    function updateAndDrawParticles(){
-      pCtx.clearRect(0,0,particleCanvas.width,particleCanvas.height);
-      var offset=getBirdWorldOffset();
-      for(var i=particles.length-1;i>=0;i--){
-        var p=particles[i]; p.x+=p.vx; p.y+=p.vy; p.life-=p.decay;
-        if(p.life<=0){particles.splice(i,1);continue;}
-        var a=p.life;
-        pCtx.beginPath(); pCtx.arc(p.x+offset.x,p.y+offset.y,p.size,0,Math.PI*2);
-        pCtx.fillStyle='rgba('+p.r+','+p.g+','+p.b+','+a+')';
-        pCtx.shadowBlur=10*p.life; pCtx.shadowColor='rgba(200,230,255,'+a*0.8+')';
-        pCtx.fill(); pCtx.shadowBlur=0;
-      }
-    }
-
-    function getBirdWorldOffset(){
-      var wRect=loader.getBoundingClientRect();
-      var bRect=bird.getBoundingClientRect();
-      return {x:bRect.left-wRect.left+13, y:bRect.top-wRect.top+13};
-    }
-
-    function animate(){
-      if(finished){
-        updateAndDrawParticles();
-        if(particles.length>0) requestAnimationFrame(animate);
-        return;
-      }
-      var elapsed=Date.now()-startTime;
-      var progress=Math.min(elapsed/TOTAL_DURATION,1);
-      progressBar.style.width=(progress*100)+'%';
-      if(progress<1){
-        var bp=getBirdPos(elapsed);
-        var wrapper=document.querySelector('.loader-wrapper');
-        var bRect=bird.getBoundingClientRect();
-        bird.style.position='absolute';
-        bird.style.left=(bp.x-bRect.width/2)+'px';
-        bird.style.top=(bp.y-bRect.height/2)+'px';
-        spawnTrail(bp.x,bp.y);
-        if(Math.random()<0.35) spawnParticles(bp.x,bp.y,1);
-        updateAndDrawTrail();
-        updateAndDrawParticles();
-        requestAnimationFrame(animate);
-      } else { finishLoading(); }
-    }
-
-    function finishLoading(){
-      finished=true;
-      loader.classList.add('finished');
-      bird.classList.add('exit');
-      spawnExitParticles();
-      document.querySelectorAll('.orbit-ring').forEach(function(r){r.style.animationPlayState='paused';});
-      updateAndDrawParticles();
-      requestAnimationFrame(function loop(){
-        updateAndDrawParticles();
-        if(particles.length>0) requestAnimationFrame(loop);
-      });
-      setTimeout(function(){
-        loader.classList.add('hidden');
-        setTimeout(function(){ loader.style.display='none'; },800);
-      },1000);
-    }
-
-    requestAnimationFrame(animate);
-  })();
-  </script>
 </body>
 </html>

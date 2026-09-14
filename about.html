@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — Modern Science  College, Jogapur Pratapgarh</title>
+  <title>About Us - Modern Science  College, Jogapur Pratapgarh</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #f5f6fa; color: #2d3436; line-height: 1.7;
+      background: #fffdf7; color: #5c0000; line-height: 1.7;
     }
     a { text-decoration: none; color: inherit; }
 
     /* NAVBAR */
     nav {
       position: sticky; top: 0; z-index: 999;
-      background: #0d1b2a;
+      background: #5c0000;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -25,20 +25,17 @@
       display: flex; align-items: center; gap: 12px;
       color: #fff; font-size: 1.05rem; font-weight: 600;
     }
-    .logo-circle {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, #1e90ff, #00b894);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; font-weight: bold; color: #fff; flex-shrink: 0;
+    .logo-img {
+      height: 44px; width: auto; border-radius: 50%; flex-shrink: 0;
     }
     .nav-links { display: flex; gap: 6px; list-style: none; }
     .nav-links a {
       display: block; padding: 10px 18px;
-      color: #dfe6e9; font-size: 0.9rem; font-weight: 500;
+      color: #f0e0a0; font-size: 0.9rem; font-weight: 500;
       border-radius: 6px; transition: all 0.2s;
     }
     .nav-links a:hover, .nav-links a.active {
-      background: #1e90ff; color: #fff;
+      background: #c8960c; color: #fff;
     }
 
     /* Hamburger */
@@ -56,7 +53,7 @@
       display: block;
       width: 26px;
       height: 3px;
-      background: #dfe6e9;
+      background: #f0e0a0;
       border-radius: 3px;
       transition: all 0.3s;
     }
@@ -66,7 +63,7 @@
 
     /* PAGE HEADER */
     .page-header {
-      background: linear-gradient(135deg, rgba(13,27,42,0.85), rgba(30,144,255,0.65)),
+      background: linear-gradient(135deg, rgba(92,0,0,0.88), rgba(200,150,12,0.5)),
                   url('../img/collegepic1.jpeg') center/cover no-repeat;
       color: #fff; text-align: center;
       padding: 100px 24px 80px;
@@ -80,14 +77,14 @@
     section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
     .section-title { text-align: center; margin-bottom: 48px; }
     .section-title h2 {
-      font-size: 2rem; color: #0d1b2a;
+      font-size: 2rem; color: #5c0000;
       display: inline-block; position: relative;
     }
     .section-title h2::after {
       content: ''; display: block; width: 55px; height: 4px;
-      background: #1e90ff; border-radius: 2px; margin: 10px auto 0;
+      background: #c8960c; border-radius: 2px; margin: 10px auto 0;
     }
-    .section-title p { color: #636e72; margin-top: 10px; }
+    .section-title p { color: #5c0000; margin-top: 10px; }
 
     /* ABOUT BLOCK */
     #about-intro { background: #fff; padding: 72px 40px; }
@@ -100,19 +97,19 @@
       width: 100%; border-radius: 14px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.12);
     }
-    .about-text p { color: #636e72; margin-bottom: 14px; font-size: 0.98rem; }
+    .about-text p { color: #5c0000; margin-bottom: 14px; font-size: 0.98rem; }
 
     /* MISSION VISION */
-    #mission-vision { background: #f5f6fa; }
+    #mission-vision { background: #fffdf7; }
     .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1100px; margin: 0 auto; }
     .mv-card {
       background: #fff; border-radius: 14px; padding: 36px 30px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      border-left: 5px solid #1e90ff;
+      border-left: 5px solid #c8960c;
     }
-    .mv-card.vision { border-left-color: #00b894; }
-    .mv-card h3 { color: #0d1b2a; font-size: 1.2rem; margin-bottom: 14px; }
-    .mv-card p { color: #636e72; font-size: 0.95rem; }
+    .mv-card.vision { border-left-color: #a0c850; }
+    .mv-card h3 { color: #5c0000; font-size: 1.2rem; margin-bottom: 14px; }
+    .mv-card p { color: #5c0000; font-size: 0.95rem; }
     .mv-icon { font-size: 2rem; margin-bottom: 14px; }
 
     /* VALUES */
@@ -124,16 +121,16 @@
     .value-card {
       text-align: center; padding: 28px 20px;
       border-radius: 12px;
-      background: #f5f6fa;
+      background: #fffdf7;
       transition: transform 0.2s, background 0.2s;
     }
-    .value-card:hover { background: #e8f4fd; transform: translateY(-4px); }
+    .value-card:hover { background: #fffdf7; transform: translateY(-4px); }
     .value-icon { font-size: 2.2rem; margin-bottom: 12px; }
-    .value-card h3 { color: #0d1b2a; font-size: 1rem; margin-bottom: 8px; }
-    .value-card p { color: #636e72; font-size: 0.87rem; }
+    .value-card h3 { color: #5c0000; font-size: 1rem; margin-bottom: 8px; }
+    .value-card p { color: #5c0000; font-size: 0.87rem; }
 
     /* HISTORY TIMELINE */
-    #history { background: #f5f6fa; }
+    #history { background: #fffdf7; }
     .timeline { max-width: 800px; margin: 0 auto; }
     .timeline-item {
       display: flex; gap: 24px; margin-bottom: 32px;
@@ -141,22 +138,22 @@
     }
     .timeline-year {
       min-width: 90px; font-weight: 800; font-size: 1.1rem;
-      color: #1e90ff; padding-top: 4px;
+      color: #c8960c; padding-top: 4px;
     }
     .timeline-dot {
       width: 14px; height: 14px; border-radius: 50%;
-      background: #1e90ff; margin-top: 8px; flex-shrink: 0;
+      background: #c8960c; margin-top: 8px; flex-shrink: 0;
     }
     .timeline-body { background: #fff; border-radius: 10px; padding: 18px 22px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); flex: 1; }
-    .timeline-body h4 { color: #0d1b2a; margin-bottom: 6px; font-size: 0.95rem; }
-    .timeline-body p { color: #636e72; font-size: 0.88rem; }
+    .timeline-body h4 { color: #5c0000; margin-bottom: 6px; font-size: 0.95rem; }
+    .timeline-body p { color: #5c0000; font-size: 0.88rem; }
 
-    /* ─── LEADERSHIP CARDS ─── */
+    /* LEADERSHIP CARDS */
     #leadership { background: #fff; }
     .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
     .leader-card {
       text-align: center;
-      background: #f8f9fa;
+      background: #fff8e1;
       border-radius: 14px;
       padding: 30px 24px 24px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.07);
@@ -170,17 +167,17 @@
       width: 200px; height: 200px; border-radius: 10px;
       object-fit: contain;
       background-size: cover;
-      border: 4px solid #1e90ff;
+      border: 4px solid #c8960c;
       margin-bottom: 14px;
-      box-shadow: 0 4px 14px rgba(30,144,255,0.2);
+      box-shadow: 0 4px 14px rgba(200,150,12,0.25);
     }
-    .leader-card h3 { color: #0d1b2a; font-size: 1.05rem; margin-bottom: 4px; }
-    .leader-card .role { color: #1e90ff; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
-    .leader-card .desc { color: #636e72; font-size: 0.85rem; margin-top: 6px; line-height: 1.6; }
+    .leader-card h3 { color: #5c0000; font-size: 1.05rem; margin-bottom: 4px; }
+    .leader-card .role { color: #c8960c; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
+    .leader-card .desc { color: #5c0000; font-size: 0.85rem; margin-top: 6px; line-height: 1.6; }
 
     /* FOOTER */
     footer {
-      background: #0d1b2a; color: #b2bec3;
+      background: #5c0000; color: #c8960c;
       padding: 50px 40px 24px;
     }
     .footer-grid {
@@ -188,46 +185,16 @@
       gap: 40px; max-width: 1100px; margin: 0 auto 40px;
     }
     .footer-col h3 { color: #fff; margin-bottom: 16px; font-size: 1rem; }
-    .footer-col p, .footer-col a { color: #b2bec3; font-size: 0.9rem; line-height: 2; display: block; }
-    .footer-col a:hover { color: #1e90ff; }
+    .footer-col p, .footer-col a { color: white; font-size: 0.9rem; line-height: 2; display: block; }
+    .footer-col a:hover { color: #c8960c; }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.08);
       text-align: center; padding-top: 20px;
-      font-size: 0.85rem; color: #636e72;
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 12px 20px; position: relative; }
-      .hamburger { display: flex; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 2px;
-        background: #0d1b2a;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 8px 16px 12px;
-        border-top: 1px solid #1a2d45;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links a { border-radius: 6px; padding: 12px 14px; }
-      .page-header h1 { font-size: 2rem; }
-      section { padding: 50px 20px; }
-      #about-intro { padding: 50px 20px; }
-      .about-content { grid-template-columns: 1fr; gap: 30px; }
-      .mv-grid { grid-template-columns: 1fr; }
+      font-size: 0.85rem; color: rgba(255,248,225,0.65);
     }
 
     /* FACEBOOK POSTS */
-    @media (max-width: 768px) {
-      #fb-posts { padding: 50px 20px; }
-      .fb-posts-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ─── FACEBOOK POSTS ─── */
-    #fb-posts { background: #1877F2; padding: 72px 40px; }
+    #fb-posts { background: linear-gradient(135deg, #7b0000, #5c0000); padding: 72px 40px; }
     #fb-posts .section-title h2 { color: #fff; }
     #fb-posts .section-title p { color: rgba(255,255,255,0.8); }
     .fb-posts-grid {
@@ -247,7 +214,7 @@
     }
     .fb-post-preview {
       width: 100%; height: 220px;
-      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      background: linear-gradient(135deg, #fff8e1, #f0e0a0);
       display: flex; align-items: center; justify-content: center;
       font-size: 4rem; position: relative;
     }
@@ -265,233 +232,48 @@
     }
     .fb-post-body .fb-icon {
       width: 36px; height: 36px; border-radius: 50%;
-      background: #1877F2; color: #fff;
+      background: #c8960c; color: #fff;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; flex-shrink: 0;
     }
     .fb-post-body .fb-label {
-      color: #1877F2; font-size: 0.85rem; font-weight: 600;
+      color: #c8960c; font-size: 0.85rem; font-weight: 600;
     }
     .fb-post-body .fb-link-text {
-      color: #636e72; font-size: 0.78rem;
+      color: #5c0000; font-size: 0.78rem;
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
 
-  /* ─── LOADER OVERLAY ─── */
-  #loader-overlay {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(ellipse at center, #0a1628 0%, #050d1a 70%, #020810 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  #loader-overlay.hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
-  #loader-overlay.finished {
-    animation: loader-exit 1s cubic-bezier(0.4,0,0.2,1) forwards;
-  }
-
-  /* Twinkling background stars */
-  .star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #fff;
-    border-radius: 50%;
-    animation: dot-twinkle var(--dur) ease-in-out infinite;
-    animation-delay: var(--delay);
-    opacity: 0.3;
-  }
-  @keyframes dot-twinkle { 0%,100%{ opacity:0.2; transform:scale(0.8); } 50%{ opacity:1; transform:scale(1.3); } }
-
-  #particle-canvas { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-
-  /* Main loader wrapper (holds rings, bird, center content) */
-  .loader-wrapper {
-    position: relative;
-    width: 380px;
-    height: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-  }
-  @media (max-width: 480px) { .loader-wrapper { width: 300px; height: 300px; } }
-
-  #trail-canvas {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Orbit rings (3 concentric rings, positioned inline via style attr) */
-  .orbit-ring {
-    position: absolute;
-    border: 1px solid rgba(30, 144, 255, 0.28);
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(30, 144, 255, 0.08) inset;
-    animation: ring-spin 10s linear infinite;
-  }
-  .orbit-ring:nth-of-type(2) { animation-duration: 14s; animation-direction: reverse; }
-  .orbit-ring:nth-of-type(3) { animation-duration: 18s; }
-
-  /* Bird container — position is set dynamically by JS (left/top), so no CSS orbit animation here */
-  .bird-container {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    top: 50%;
-    left: 50%;
-    margin-top: -11px;
-    margin-left: -11px;
-    z-index: 4;
-  }
-  .bird-svg {
-    width: 22px;
-    height: 22px;
-    filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px rgba(30, 144, 255, 0.7));
-    animation: wing-flap 0.35s ease-in-out infinite alternate;
-  }
-
-  /* Center content (icon + college name) */
-  .center-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 3;
-  }
-  .center-icon {
-    font-size: 2.6rem;
-    margin-bottom: 10px;
-    animation: icon-pulse 1.8s ease-in-out infinite;
-  }
-  .center-title {
-    color: #fff;
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-  .center-sub {
-    color: #7fdbff;
-    font-size: 0.78rem;
-    margin-top: 6px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
-  /* Progress bar */
-  .progress-bar-wrap {
-    position: relative;
-    margin-top: 34px;
-    width: 220px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 2px;
-    overflow: hidden;
-    z-index: 3;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #1e90ff, #00d4ff);
-    border-radius: 2px;
-    transition: width 0.1s linear;
-    box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
-  }
-
-  /* Tagline */
-  .tagline {
-    margin-top: 16px;
-    color: #7fdbff;
-    font-size: 0.82rem;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    animation: tagline-pulse 2s ease-in-out infinite;
-    z-index: 3;
-  }
-
-  @keyframes ring-spin { to { transform: rotate(360deg); } }
-  @keyframes icon-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-  @keyframes wing-flap { 0% { transform: scaleY(1) rotate(0deg); } 100% { transform: scaleY(0.7) rotate(-5deg); } }
-  @keyframes tagline-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-  @keyframes loader-exit {
-    0% { transform: scale(1); opacity: 1; filter: blur(0px); }
-    100% { transform: scale(0.6); opacity: 0; filter: blur(12px); }
-  }
-
-  @media (max-width: 480px) {
-    .loader-wrapper { width: 300px; height: 300px; }
-    .orbit-ring { transform: scale(0.82); }
-    .center-icon { font-size: 2rem; }
-    .center-title { font-size: 0.85rem; letter-spacing: 1px; }
-    .center-sub { font-size: 0.65rem; }
-    .progress-bar-wrap { width: 180px; }
-    .tagline { font-size: 0.7rem; letter-spacing: 1.5px; }
-  }
-</style>
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; position: relative; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 2px;
+        background: #5c0000;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 8px 16px 12px;
+        border-top: 1px solid #5c0000;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { border-radius: 6px; padding: 12px 14px; }
+      .page-header h1 { font-size: 2rem; }
+      section { padding: 50px 20px; }
+      #about-intro { padding: 50px 20px; }
+      .about-content { grid-template-columns: 1fr; gap: 30px; }
+      .mv-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- LOADER -->
-  <div id="loader-overlay">
-    <div class="star" style="width:2px;height:2px;top:8%;left:12%;--dur:2.8s;--delay:0s"></div>
-    <div class="star" style="width:2px;height:2px;top:15%;left:78%;--dur:3.4s;--delay:0.5s"></div>
-    <div class="star" style="width:3px;height:3px;top:65%;left:10%;--dur:2.3s;--delay:1s"></div>
-    <div class="star" style="width:2px;height:2px;top:72%;left:85%;--dur:3.1s;--delay:1.5s"></div>
-    <div class="star" style="width:3px;height:3px;top:40%;left:5%;--dur:2.6s;--delay:0.3s"></div>
-    <div class="star" style="width:2px;height:2px;top:28%;left:92%;--dur:3.7s;--delay:0.8s"></div>
-    <div class="star" style="width:3px;height:3px;top:88%;left:45%;--dur:2.1s;--delay:1.2s"></div>
-    <div class="star" style="width:2px;height:2px;top:5%;left:50%;--dur:3.3s;--delay:0.6s"></div>
-    <div class="star" style="width:3px;height:3px;top:55%;left:88%;--dur:2.9s;--delay:1.8s"></div>
-    <div class="star" style="width:2px;height:2px;top:78%;left:35%;--dur:3.6s;--delay:2.1s"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="loader-wrapper">
-      <canvas id="trail-canvas" width="380" height="380"></canvas>
-      <div class="orbit-ring" style="width:190px;height:190px;top:50%;left:50%;margin-top:-95px;margin-left:-95px;"></div>
-      <div class="orbit-ring" style="width:260px;height:260px;top:50%;left:50%;margin-top:-130px;margin-left:-130px;"></div>
-      <div class="orbit-ring" style="width:330px;height:330px;top:50%;left:50%;margin-top:-165px;margin-left:-165px;"></div>
-      <div class="bird-container" id="bird">
-        <svg class="bird-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs><radialGradient id="bg3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#1e90ff"/></radialGradient></defs>
-          <ellipse cx="20" cy="19" rx="11" ry="8" fill="url(#bg3)" opacity="0.95"/>
-          <circle cx="27" cy="16" r="6.5" fill="url(#bg3)" opacity="0.95"/>
-          <polygon points="33,16 40,13 33,19" fill="#fff"/>
-          <circle cx="29" cy="14.5" r="1.6" fill="#fff"/>
-          <circle cx="29" cy="14.5" r="0.8" fill="#050d1a"/>
-          <ellipse cx="14" cy="17" rx="7" ry="2.8" fill="rgba(0,212,255,0.5)" transform="rotate(-8 14 17)">
-            <animateTransform attributeName="transform" type="scale" values="1,1;0.4,1;1,1" dur="0.35s" repeatCount="indefinite" additive="sum"/>
-          </ellipse>
-          <ellipse cx="14" cy="19.5" rx="6" ry="2.2" fill="rgba(30,144,255,0.45)" transform="rotate(6 14 19.5)">
-            <animateTransform attributeName="transform" type="scale" values="1,1;0.35,1;1,1" dur="0.35s" repeatCount="indefinite" additive="sum"/>
-          </ellipse>
-        </svg>
-      </div>
-      <div class="center-content">
-        <div class="center-icon">🎓</div>
-        <div class="center-title">Modern Science College</div>
-        <div class="center-sub">Pratapgarh</div>
-      </div>
-    </div>
-    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar"></div></div>
-    <div class="tagline">Nurturing Minds · Shaping Futures</div>
-  </div>
-
   <nav>
     <div class="logo">
-      <div class="logo-circle">MSC</div>
+      <img class="logo-img" src="../img/pnglogo.png" alt="Modern Science College Logo" />
       <span>Modern Science  College</span>
     </div>
     <ul class="nav-links">
@@ -540,7 +322,7 @@
       <div class="mv-card">
         <div class="mv-icon">🎯</div>
         <h3>Our Mission</h3>
-        <p>To provide a transformative learning experience that empowers students with knowledge, skills, and ethical values. We strive to create an inclusive environment where every student can thrive academically, socially, and personally — emerging as responsible citizens and capable professionals.</p>
+        <p>To provide a transformative learning experience that empowers students with knowledge, skills, and ethical values. We strive to create an inclusive environment where every student can thrive academically, socially, and personally - emerging as responsible citizens and capable professionals.</p>
       </div>
       <div class="mv-card vision">
         <div class="mv-icon">🌟</div>
@@ -636,7 +418,7 @@
   <section id="fb-posts">
     <div class="section-title">
       <h2>Facebook Posts</h2>
-      <p>Stay connected — view our latest Facebook posts and videos</p>
+      <p>Stay connected - view our latest Facebook posts and videos</p>
     </div>
     <div class="fb-posts-grid">
       <a class="fb-post-card" href="https://www.facebook.com/share/1E4288bNbo/" target="_blank" rel="noopener">
@@ -723,12 +505,6 @@
         <p class="role">Manager</p>
         <p class="desc">Manager Mrs. Shashi  Shukla plays a pivotal role in the smooth administration and management of the  College. Her commitment to creating a nurturing environment and her strong organizational skills ensure the institution runs efficiently and effectively.</p>
       </div>
-      <!-- <div class="leader-card">
-        <div class="leader-avatar" style="width:130px;height:130px;font-size:3.5rem;background:linear-gradient(135deg,#1e90ff,#00b894);">🎓</div>
-        <h3>Alumni Network</h3>
-        <p class="role">Our Pride</p>
-        <p class="desc">A growing community of successful alumni who carry forward the MSC legacy across the globe.</p>
-      </div> -->
     </div>
   </section>
 
@@ -736,7 +512,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <h3>Modern Science  College</h3>
+        <img src="../img/pnglogo.png" alt="Modern Science College Logo" style="height:60px; width:auto; margin-bottom:14px; display:block;" />
         <p>A premier educational institution committed to knowledge and character development in Jogapur Pratapgarh, Uttar Pradesh.</p>
       </div>
       <div class="footer-col">
@@ -759,184 +535,14 @@
         <p>Recognized and affiliated by the Government of Uttar Pradesh through the following bodies:</p>
         <p><a href="https://upmsp.edu.in/" target="_blank" rel="noopener">🎓 U.P. Madhyamik Shiksha Parishad (UPMSP)</a></p>
         <p><a href="https://scholarship.up.gov.in/" target="_blank" rel="noopener">💻 UP Scholarship Portal</a></p>
-        <p style="margin-top:8px;"><small style="color:#636e72;">UPMSP — Uttar Pradesh Board of Secondary Education</small></p>
-        <p><small>UP Govt. Scholarship — Financial assistance for students</small></p>
+        <p style="margin-top:8px;"><small style="color:#5c0000;">UPMSP - Uttar Pradesh Board of Secondary Education</small></p>
+        <p><small>UP Govt. Scholarship - Financial assistance for students</small></p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 Modern Science  College, Jogapur Pratapgarh. All Rights Reserved.</p>
     </div>
   </footer>
-
-  <script>
-(function(){
-  'use strict';
-  var TOTAL_DURATION=3000;
-  var canvas=document.getElementById('trail-canvas');
-  var ctx=canvas.getContext('2d');
-  var particleCanvas=document.getElementById('particle-canvas');
-  var pCtx=particleCanvas.getContext('2d');
-  var loader=document.getElementById('loader-overlay');
-  var bird=document.getElementById('bird');
-  var progressBar=document.getElementById('progress-bar');
-  var startTime=Date.now();
-  var trailPoints=[];
-  var particles=[];
-  var finished=false;
-
-  function resizeCanvas(){
-    var wrapper=document.querySelector('.loader-wrapper');
-    var rect=wrapper.getBoundingClientRect();
-    canvas.width=rect.width; canvas.height=rect.height;
-    particleCanvas.width=loader.offsetWidth; particleCanvas.height=loader.offsetHeight;
-  }
-  resizeCanvas();
-  window.addEventListener('resize',resizeCanvas);
-
-  function getCenter(){
-    var wrapper=document.querySelector('.loader-wrapper');
-    var rect=wrapper.getBoundingClientRect();
-    return {x:rect.width/2, y:rect.height/2};
-  }
-
-  function getBirdPos(elapsed){
-    var c=getCenter();
-    var radius=Math.min(c.x,c.y)-18;
-    var angle=(elapsed/2200)*Math.PI*2;
-    return {x:c.x+Math.cos(angle)*radius, y:c.y+Math.sin(angle)*radius};
-  }
-
-  function spawnTrail(x,y){
-    trailPoints.push({x:x,y:y,life:1,decay:0.028});
-    if(trailPoints.length>60) trailPoints.shift();
-  }
-
-  function spawnParticles(x,y,count){
-    for(var i=0;i<count;i++){
-      var angle=Math.random()*Math.PI*2;
-      var speed=1+Math.random()*3.5;
-      particles.push({
-        x:x, y:y,
-        vx:Math.cos(angle)*speed,
-        vy:Math.sin(angle)*speed-1.5,
-        life:1, decay:0.012+Math.random()*0.025,
-        size:1+Math.random()*3, isExit:false,
-        r:Math.random()<0.5?30:0, g:Math.random()<0.5?144:212, b:Math.random()<0.5?255:255
-      });
-    }
-  }
-
-  function spawnExitParticles(){
-    var c=getCenter();
-    for(var i=0;i<80;i++){
-      var angle=Math.random()*Math.PI*2;
-      var speed=0.5+Math.random()*2;
-      particles.push({
-        x:c.x+(Math.random()-0.5)*160, y:c.y+(Math.random()-0.5)*160,
-        vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed-2.5,
-        life:1, decay:0.006+Math.random()*0.015,
-        size:1.5+Math.random()*4, isExit:true
-      });
-    }
-  }
-
-  function updateAndDrawTrail(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    for(var i=trailPoints.length-1;i>=0;i--){
-      var p=trailPoints[i];
-      p.life-=p.decay;
-      if(p.life<=0){trailPoints.splice(i,1);continue;}
-      var alpha=p.life*0.9;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.life*5,0,Math.PI*2);
-      ctx.fillStyle='rgba(0,200,255,'+alpha+')';
-      ctx.shadowBlur=15*p.life;
-      ctx.shadowColor='rgba(0,200,255,'+alpha+')';
-      ctx.fill();
-      ctx.shadowBlur=0;
-    }
-    if(trailPoints.length>1){
-      ctx.beginPath();
-      ctx.moveTo(trailPoints[0].x,trailPoints[0].y);
-      for(var j=1;j<trailPoints.length;j++){
-        var cp=trailPoints[j]; ctx.lineTo(cp.x,cp.y);
-      }
-      ctx.strokeStyle='rgba(0,180,255,0.35)';
-      ctx.lineWidth=2;
-      ctx.shadowBlur=8; ctx.shadowColor='rgba(0,180,255,0.5)';
-      ctx.stroke(); ctx.shadowBlur=0;
-    }
-  }
-
-  function updateAndDrawParticles(){
-    pCtx.clearRect(0,0,particleCanvas.width,particleCanvas.height);
-    var offset=getBirdWorldOffset();
-    for(var i=particles.length-1;i>=0;i--){
-      var p=particles[i];
-      p.x+=p.vx; p.y+=p.vy;
-      if(!p.isExit) p.vy+=0.03; else p.vy-=0.02;
-      p.life-=p.decay;
-      if(p.life<=0){particles.splice(i,1);continue;}
-      var a=p.life;
-      pCtx.beginPath();
-      pCtx.arc(p.x+offset.x,p.y+offset.y,p.size,0,Math.PI*2);
-      pCtx.fillStyle='rgba('+p.r+','+p.g+','+p.b+','+a+')';
-      pCtx.shadowBlur=10*p.life;
-      pCtx.shadowColor='rgba(200,230,255,'+a*0.8+')';
-      pCtx.fill(); pCtx.shadowBlur=0;
-    }
-  }
-
-  function getBirdWorldOffset(){
-    var wRect=loader.getBoundingClientRect();
-    var bRect=bird.getBoundingClientRect();
-    return {x:bRect.left-wRect.left+13, y:bRect.top-wRect.top+13};
-  }
-
-  function animate(){
-    if(finished){
-      updateAndDrawParticles();
-      if(particles.length>0) requestAnimationFrame(animate);
-      return;
-    }
-    var elapsed=Date.now()-startTime;
-    var progress=Math.min(elapsed/TOTAL_DURATION,1);
-    progressBar.style.width=(progress*100)+'%';
-    if(progress<1){
-      var bp=getBirdPos(elapsed);
-      var bRect=bird.getBoundingClientRect();
-      bird.style.position='absolute';
-      bird.style.left=(bp.x-bRect.width/2)+'px';
-      bird.style.top=(bp.y-bRect.height/2)+'px';
-      spawnTrail(bp.x,bp.y);
-      if(Math.random()<0.35) spawnParticles(bp.x,bp.y,1);
-      updateAndDrawTrail();
-      updateAndDrawParticles();
-      requestAnimationFrame(animate);
-    } else {
-      finishLoading();
-    }
-  }
-
-  function finishLoading(){
-    finished=true;
-    loader.classList.add('finished');
-    spawnExitParticles();
-    document.querySelectorAll('.orbit-ring').forEach(function(r){r.style.animationPlayState='paused';});
-    updateAndDrawParticles();
-    requestAnimationFrame(function loop(){
-      updateAndDrawParticles();
-      if(particles.length>0) requestAnimationFrame(loop);
-    });
-    setTimeout(function(){
-      loader.classList.add('hidden');
-      setTimeout(function(){ loader.style.display='none'; },800);
-    },1000);
-  }
-
-  requestAnimationFrame(animate);
-})();
-</script>
 
 </body>
 </html>
